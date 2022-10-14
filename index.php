@@ -130,19 +130,54 @@
   <footer class="page-footer gradient">
     <div class="container text-center">
       <div class="row align-items-center justify-content-center">
-        <div class="col-md-8">
-          <!-- HEADER TITLE -->
+        <!-- FOOTER COL 1 -->
+        <div class="col-md-5">
+          <!-- FOOTER TITLE -->
           <h2>
             G1 Boost | Licence Practice Test
           </h2>
-          <!-- HEADER PARAGRAPH -->
+          <!-- FOOTER PARAGRAPH -->
           <p>Try out our new approach to learning with interactive and fast paced quizes that will help you clear your G1 Test.</p>
-
         </div>
-        <div class="col-md-8">
-          <!-- COL2 ROW 1 -->
-          <div class="row">
 
+        <!-- FOOTER COL 2 -->
+        <div class="col-md-5">
+        <!-- FOOTER COL1.ROW 1 AND RELATED COLS -->
+          <div class="row">
+            <div class="col p-1">
+              Your Account
+            </div>
+            <div class="col p-1">
+              Team
+            </div>
+            <div class="col p-1">
+              About Us
+            </div>
+          </div>
+        <!-- FOOTER COL1.ROW 2 AND RELATED COLS -->
+          <div class="row ">
+            <div class="col p-1">
+              Quiz List
+            </div>
+            <div class="col p-1">
+              Terms of Service
+            </div>
+            <div class="col p-1">
+              Contact Us
+            </div>
+          </div>
+        <!-- FOOTER COL1.ROW 3 AND RELATED COLS -->
+          <div class="row">
+            <div class="col p-1">
+              Results
+            </div>
+            <div class="col p-1">
+              Privacy Policy
+            </div>
+            <div class="col p-1">
+              Help
+            </div>
+          </div>
         </div>
       </div>
     </div>
