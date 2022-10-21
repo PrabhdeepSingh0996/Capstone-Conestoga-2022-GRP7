@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Driving Test | Home</title>
+  <title>Driving Test | Login</title>
   <!-- BOOTSTRAP 5.0.2 -->
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <!-- CUSTOM CSS -->
@@ -42,51 +42,35 @@
     </div>
   </nav>
 
-  <!-- Carousal -->
-  <section class="page-header carousal">
-    <div class="container-sm text-center page-carousal">
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/carousel-1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="img/carousel-2.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="img/carousel-3.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- HEADER -->
   <header class="page-header gradient">
     <div class="container pt-3" >
       <div class="row align-items-center justify-content-center">
         <div class="col-md-5">
-          <!-- HEADER TITLE -->
+          <!-- HEADER TITLE(REGISTRATION FORM) -->
           <h2>
-            G1 Boost | Driving Test Practice
+            G1 Boost | Login
           </h2>
           <!-- HEADER PARAGRAPH -->
-          <p>Try out our new approach to learning with interactive and fast paced quizes that will help you clear your G1 Test.</p>
+          <p>If you have already an account then login here!!<br>
+          Enter correct username and password.</p>
           <!-- HEADER PARAGRAPH BUTTONS -->
-          <button type="button" class="btn btn-outline-primary">
-            Check our different Test Types.
-          </button> 
-          <button type="button" class="btn btn btn-outline-success">
-            Read about our Learning Strategies.
-          </button>
+          <form>
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Username</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Username" required>
+            </div>
+            <div class="mb-3">
+              <label for="formGroupExampleInput2" class="form-label">Password</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter your Password." required>
+            </div>
+            <button type="button" class="btn btn-primary">
+              Login.
+            </button>
+
+        </form>
         </div>
         <div class="col-md-5">
           <img src="img/id1.png" class="img-fluid" alt="identification card header image">

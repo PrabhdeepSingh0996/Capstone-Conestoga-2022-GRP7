@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Driving Test | Home</title>
+  <title>Driving Test | Register</title>
   <!-- BOOTSTRAP 5.0.2 -->
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <!-- CUSTOM CSS -->
@@ -42,59 +42,83 @@
     </div>
   </nav>
 
-  <!-- Carousal -->
-  <section class="page-header carousal">
-    <div class="container-sm text-center page-carousal">
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/carousel-1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="img/carousel-2.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="img/carousel-3.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- HEADER -->
   <header class="page-header gradient">
     <div class="container pt-3" >
       <div class="row align-items-center justify-content-center">
         <div class="col-md-5">
-          <!-- HEADER TITLE -->
+          <!-- HEADER TITLE(REGISTRATION FORM) -->
           <h2>
-            G1 Boost | Driving Test Practice
+            G1 Boost | Registration
           </h2>
           <!-- HEADER PARAGRAPH -->
-          <p>Try out our new approach to learning with interactive and fast paced quizes that will help you clear your G1 Test.</p>
+          <p>To create a new account please  fill the registeration form .<br>
+        quick & easy </p>
           <!-- HEADER PARAGRAPH BUTTONS -->
-          <button type="button" class="btn btn-outline-primary">
-            Check our different Test Types.
-          </button> 
-          <button type="button" class="btn btn btn-outline-success">
-            Read about our Learning Strategies.
-          </button>
-        </div>
-        <div class="col-md-5">
-          <img src="img/id1.png" class="img-fluid" alt="identification card header image">
-        </div>
-      </div>
+          
+          <form>
+          <div class="row g-3">
+            <h2> Registration Form</h2>
+            <div>
+  <div class="col">
+    <label for="First Name" class="form-label">First Name</label>
+    <input type="First Name" class="form-control" id="inputFirstName" placeholder="First Name " required>
+  
+  </div>
+  <div class="col">
+  <label for="Last Name" class="form-label">Last Name</label>
+  <input type="Last Name" class="form-control" id="inputLastName" placeholder="Last Name" required>
+</div>
+</div>
+  <div class="col-md-6">
+    <label for="inputEmail" class="form-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail" placeholder="Enter your Email-Address" required>
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword" class="form-label">Password</label>
+    <input type="password" class="form-control" id="inputPassword" placeholder="Enter your Password" required>
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="Enter your Address" required>
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="For Emergency contact" required>
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">City</label>
+    <input type="text" class="form-control" id="inputCity" required>
+  </div>
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">State</label>
+    <input type="text" class="form-control" id="inputState" required>
+     
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="inputZip" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="inputZip" required>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck" required>
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
     </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div> 
+
+
+    
 
     <!-- WAVE PATTERN 1 -->
+
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path fill="#fff" 
         fill-opacity="1" 
