@@ -2,31 +2,39 @@ html,
 body {
     height: 100%;
     font-size: 1rem;
-    /* background-color: #fff; */
-    /* color: #fff; */
     font-family: 'Open Sans', sans-serif;
 }
 
 /* index. NAVBAR */
+.page-nav {
+    padding-top: 3rem;
+    margin-top: 4rem;
+}
 .gradient{
-    background: rgb(28,78,78);
-    background: linear-gradient(260deg, rgba(11,52,52,1) 0%, rgba(13,82,85,1) 19%, rgba(45,201,210,1) 88%, rgba(79,209,217,1) 100%);
+    background: rgb(79,209,217);
+    background: linear-gradient(90deg, rgba(79,209,217,1) 0%, rgba(45,201,210,1) 20%, rgba(13,82,85,1) 75%, rgba(11,52,52,1) 100%);
 }
 
 /* index. HEADER */
 .page-header {
-    padding-top: 3rem;
-    margin-top: 4rem;
+    padding-top: 2rem;
     color: #fff;
 }
 .page-footer {
     color: #fff;
-    padding-top: 3rem;
+    padding-top: 7rem;
+    padding-bottom: 4rem;
     color: #fff;
 }
+/* Caraousal */
+.page-carousal-head {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
 .page-carousal {
-    width: 70%;
+    width: 75%;
     height: 60%;
+    padding-top: 5%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -35,4 +43,8 @@ body {
     min-width: 150px;
     width: 100px;
     height: 100px;
+}
+
+.page-padding_top_5 {
+    padding-top: 5rem;
 }
