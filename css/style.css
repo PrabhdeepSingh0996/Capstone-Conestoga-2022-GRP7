@@ -20,6 +20,7 @@ body {
     padding-top: 2rem;
     color: #fff;
 }
+/* index. FOOTER */
 .page-footer {
     color: #fff;
     padding-top: 7rem;
@@ -45,6 +46,21 @@ body {
     height: 100px;
 }
 
+/* ALL. CUSTOM PADDING */
 .page-padding_top_5 {
-    padding-top: 5rem;
+    padding-top: 7rem;
+}
+/* CUSTOM BUTTON COLOR */
+.btn-custom-aqua {
+    background-color: #2da2a9;
+    color: #fff;
+}
+/* PROFILE PIC SIZE */
+.profile-icon {
+    width: 75px; 
+    height: 75px;
+}
+.profile-thumbnail {
+    width: 150; 
+    height: 150px;
 }

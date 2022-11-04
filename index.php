@@ -1,3 +1,7 @@
+<?php
+  require ('parts/addon.function.php');
+  // check_login();
+?>
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
 <title>Driving Test | Home</title>
@@ -25,15 +29,20 @@ include('parts/part.wave_bottom.php')
           <!-- HEADER PARAGRAPH -->
           <p>Try out our new approach to learning with interactive and fast paced quizes that will help you clear your G1 Test.</p>
           <!-- HEADER PARAGRAPH BUTTONS -->
-          <button type="button" class="btn btn-outline-primary">
-            Check our different Test Types.
-          </button>
-          <button type="button" class="btn btn btn-outline-success">
-            Read about our Learning Strategies.
-          </button>
+          <a href="quiztype.php">
+            <button type="button" class="btn btn-outline-primary">
+              Check our different Test Types.
+            </button>
+          </a>
+          <a href="#" class="disabled">
+            <button type="button" class="btn btn btn-outline-success disabled">
+              Read about our Learning Strategies.
+            </button>
+          </a>
         </div>
           <!-- HEADER IMAGE -->
         <div class="col-md-5">
+          <!-- https://pixabay.com/illustrations/id-driving-license-personal-identity-4157974/ -->
           <img src="img/id1.png" class="img-fluid" alt="identification card header image">
         </div>
       </div>

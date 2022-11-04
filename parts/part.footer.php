@@ -23,7 +23,7 @@
               Team
             </div>
             <div class="col p-1">
-              About Us
+              <a class="link-secondary" href="about.php">About Us</a>
             </div>
           </div>
         <!-- FOOTER COL1.ROW 2 AND RELATED COLS -->

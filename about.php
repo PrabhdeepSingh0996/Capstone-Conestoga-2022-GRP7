@@ -1,3 +1,7 @@
+<?php
+  require ('parts/addon.function.php');
+  // check_login();
+?>
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
 <title>Driving Test | About</title>
@@ -6,6 +10,11 @@
 <!-- NAV -->
 <?php include('parts/part.nav.php') ?>
 <!-- NAV -->
+
+<!-- WAVE PATTERN Bottom -->
+<?php
+// include('parts/part.wave_bottom.php')
+?>
 
   <!-- HEADER -->
   <header class="page-header page-padding_top_5 gradient">
@@ -24,7 +33,8 @@
         </div>
           <!-- HEADER IMAGE -->
         <div class="col-md-5">
-          <img src="img/about_us.png" class="img-fluid" alt="identification card header image">
+          <!-- https://pixabay.com/illustrations/about-us-about-team-team-us-2150927/ -->
+          <img src="img/about.png" class="img-fluid" alt="identification card header image">
         </div>
       </div>
     </div>
