@@ -8,37 +8,53 @@
     // addslashes funtion to convert input into strings
     $username = addslashes($_POST['username']);
     $password = addslashes($_POST['password']);
-
-    $query = "select * from user where username = '$username' && password = '$password' limit 1";
-
-    // Capturing mysqli query results into variable result
-    $result = mysqli_query($con,$query);
-
-    if (mysqli_num_rows($result) > 0){
-      
-      $row = mysqli_fetch_assoc($result);
-      
-      // if($row["usertype"]=="user")
-      // {
-      //    $_SESSION["info"]=$row; 
-    
-      //   header("location:userpanel.php");
-      //   die;
-      // }
-      // elseif($row["usertype"]=="admin")
-      // {
-      //    $_SESSION["admin"]=$row;
-         
-      //   header("location:adminpanel.php");
-      //   die;
-      // }
-
-      $_SESSION['info'] = ($row);
-      header("Location: userpanel.php");
-      die;
-    }else{
-      $error = "Wrong Username or Password";
+    if($username == ""){
+      $error = "Empty Username";
     }
+    else if($password == ""){
+      $error = "Empty Password";
+    }
+    else{
+      if($username == ""){
+        $error .= "Username is empty";
+      }
+      if($password == ""){
+        $error = "Password is empty";
+      }
+      else if(!empty($username) && !empty($password)){
+        $query = "select * from user where username = '$username' && password = '$password' limit 1";
+
+        // Capturing mysqli query results into variable result
+        $result = mysqli_query($con,$query);
+
+        if (mysqli_num_rows($result) > 0){
+          
+          $row = mysqli_fetch_assoc($result);
+          
+          // if($row["usertype"]=="user")
+          // {
+          //    $_SESSION["info"]=$row; 
+        
+          //   header("location:userpanel.php");
+          //   die;
+          // }
+          // elseif($row["usertype"]=="admin")
+          // {
+          //    $_SESSION["admin"]=$row;
+            
+          //   header("location:adminpanel.php");
+          //   die;
+          // }
+
+          $_SESSION['info'] = ($row);
+          header("Location: userpanel.php");
+          die;
+        }else{
+          $error = "Wrong Username or Password";
+        }
+      }
+    }
+    
   }
 ?>
 
@@ -74,11 +90,11 @@ include('parts/part.nav.php')
           <form action="#" method="POST">
             <div class="col-md-9">
               <label for="formGroupExampleInput" class="form-label">Username</label>
-              <input type="text" name="username" class="form-control" id="formGroupExampleInput" placeholder="Enter Username" required>
+              <input type="text" name="username" class="form-control" id="formGroupExampleInput" placeholder="Enter Username" >
             </div>
             <div class="col-md-9">
               <label for="formGroupExampleInput2" class="form-label">Password</label>
-              <input type="password" name="password" class="form-control" id="formGroupExampleInput2" placeholder="Enter your Password." required>
+              <input type="password" name="password" class="form-control" id="formGroupExampleInput2" placeholder="Enter your Password." >
             </div>
             <div class="col-12 pt-3">
               <input type="submit" class="btn btn-primary">

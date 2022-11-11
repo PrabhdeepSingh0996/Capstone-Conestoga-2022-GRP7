@@ -6,12 +6,12 @@
   {
     // Adding data to cutom variables from array
     // uploading image
-    $image_added = false
+    $image_added = false;
     if(!empty($_FILES['image']['name']) && $_FILES['image']['error'] == 0){
       // file uploaded
       $folder = "uploads/";
 
-      if(file_exists($folder))
+      if(!file_exists($folder))
       {
         // permission to write
         mkdir($folder,0777,true);
@@ -19,7 +19,7 @@
 
       $image = $folder . $_FILES['image']['name'];
       move_uploaded_file($_FILES['image']['tmp_name'], $image);
-      $image_added = true
+      $image_added = true;
     }
     // addslashes funtion to convert input into strings
     $first_name = addslashes($_POST['first_name']);
@@ -29,7 +29,7 @@
     $password = addslashes($_POST['password']);
     $user_id = $_SESSION['info']['user_id'];
 
-    if ($image_added) == true;{
+    if ($image_added == true){
       $query = "update user set first_name = '$first_name', last_name = '$last_name', username = '$username', email = '$email', password = '$password', image = '$image' where user_id = $user_id limit 1";
     }else{
       $query = "update user set first_name = '$first_name', last_name = '$last_name', username = '$username', email = '$email', password = '$password' where user_id = $user_id limit 1";
@@ -37,8 +37,15 @@
     // Capturing mysqli query results into variable result
     $result = mysqli_query($con,$query);
 
-    header("Location: userpanel.php");
-    die;
+    // Re-Run select query to refresh data (image).
+    // $query = "select * from user where id = '$id' limit 1";
+    // $result = mysqli_query($con,$query);
+    // if (mysqli_num_rows($result) > 0){
+    //   $_SESSION['info'] = mysqli_fetch_assoc($result);
+    // }
+
+    // header("Location: userpanel.php");
+    // die;
   }
 ?>
 
@@ -48,7 +55,7 @@
 
 <!-- NAV -->
 <?php
-// include('parts/part.nav.php')
+include('parts/part.nav.php')
 ?>
   <!-- HEADER -->
   <header class="page-header page-padding_top_5 gradient">
@@ -115,11 +122,9 @@
               </div>
               <div class="row">
                 <div class="col-3 pt-3 pb-3">
-                  <a href="quiz20.php">
-                    <button type="button" class="btn btn-primary col-12">
+                    <button class="btn btn-primary col-12">
                       Save
                     </button>
-                  </a>
                 </div>
                 <div class="col-3 pt-3 pb-3">
                   <a href="userpanel.php">
