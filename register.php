@@ -11,6 +11,22 @@
     $username = addslashes($_POST['username']);
     $email = addslashes($_POST['email']);
     $password = addslashes($_POST['password']);
+    
+    // $image_added = false;
+    // if(!empty($_FILES['image']['name']) && $_FILES['image']['error'] == 0){
+    //   // file uploaded
+    //   $folder = "uploads/";
+
+    //   if(!file_exists($folder))
+    //   {
+    //     // permission to write
+    //     mkdir($folder,0777,true);
+    //   }
+
+    //   $image = $folder . $_FILES['image']['name'];
+    //   move_uploaded_file($_FILES['image']['tmp_name'], $image);
+    //   $image_added = true;
+    // }
 
     $query = "insert into user (first_name,last_name,email,username,password) values ('$first_name','$last_name','$email','$username','$password')";
 
@@ -39,7 +55,7 @@ include('parts/part.nav.php')
         <div class="col-md-5">
           <!-- HEADER TITLE(REGISTRATION FORM) -->
           <h2>
-            G1 Boost | Register
+            Register
           </h2>
           <!-- HEADER PARAGRAPH -->
           <p>Please fill out the form below to register a new account with us.</p>
@@ -67,6 +83,9 @@ include('parts/part.nav.php')
                 <label for="inputPassword" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password" required>
               </div>
+              <div class="col-md-12 pt-2 pb-2 d-none">
+                  <input type="file" name="image" class="form-control" id="inputImage" value="uploads/profile.png">
+                </div>
             </div>
             <div class="col-12 pt-3">
               <button type="submit" class="btn btn-primary">Register</button>

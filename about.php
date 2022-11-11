@@ -23,7 +23,7 @@
         <div class="col-md-5">
           <!-- HEADER TITLE -->
           <h2>
-            About G1 Boost
+            About Us
           </h2>
           <p>
             

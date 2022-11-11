@@ -25,7 +25,7 @@ include('parts/part.nav.php')
           <!-- HEADER PARAGRAPH -->
           <p>Welcome 
             <?php 
-              echo $_SESSION['admin']['first_name']
+              echo $_SESSION['user']['first_name'];
             ?>!
             <br>Here you can view all the users and make changes to them.
           </p>
@@ -55,28 +55,28 @@ include('parts/part.nav.php')
                 <td>
                   <p class="fw-normal mb-1">
                     <?php
-                      echo $_SESSION['admin']['first_name']
+                      echo $_SESSION['user']['first_name'];
                     ?>
                   </p>
                 </td>
                 <td>
                   <p class="fw-normal mb-1">
                     <?php
-                      echo $_SESSION['admin']['last_name']
+                      echo $_SESSION['user']['last_name'];
                     ?>
                   </p>
                 </td>
                 <td>
                   <p class="fw-normal mb-1">
                     <?php
-                      echo $_SESSION['admin']['email']
+                      echo $_SESSION['user']['email'];
                     ?>
                   </p>
                 </td>
                 <td>
                   <p class="fw-normal mb-1">
                     <?php
-                      echo $_SESSION['admin']['username']
+                      echo $_SESSION['user']['username'];
                     ?>
                   </p>
                 </td>
@@ -96,7 +96,7 @@ include('parts/part.nav.php')
         </div>
         <!-- LEFT -->
         <div class="col-md-3">
-          <img src="img/profile.png" class="img-fluid" alt="identification card header image">
+          <!-- <img src="img/profile.png" class="img-fluid" alt="identification card header image"> -->
         </div>
       </div>
     </div>

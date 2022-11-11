@@ -10,9 +10,15 @@
           <li class="nav-item">
             <a class="nav-link" href="quiztype.php">Quiz</a>
           </li>
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="adminpanel.php">Admin</a>
-          </li> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="quizresult.php">Result</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="adminpaneladd.php">Admin Add</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="about.php">About Us</a>
           </li>

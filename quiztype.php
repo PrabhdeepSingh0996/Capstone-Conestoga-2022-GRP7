@@ -24,7 +24,7 @@
         <div class="col-md-5">
           <!-- HEADER TITLE(LOGIN FORM) -->
           <h2>
-            G1 Boost | Quiz Types
+            Quiz Types
           </h2>
           <!-- HEADER PARAGRAPH -->
           <p>Select your test style and click on the begin button to start the test...</p>
@@ -32,7 +32,7 @@
           
           <div class="row align-items-center justify-content-center">
             <div class="col-12 p-1">
-              <a href="quiz20.php">
+              <a href="quiz20info.php">
                 <button type="button" class="btn btn-primary col-12">
                   Basic 20 Rules 20 Signs Test
                 </button>

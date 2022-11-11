@@ -17,28 +17,28 @@
     if (mysqli_num_rows($result) > 0){
       
       $row = mysqli_fetch_assoc($result);
-      
-      // if($row["usertype"]=="user")
-      // {
-      //    $_SESSION["info"]=$row; 
-    
-      //   header("location:userpanel.php");
-      //   die;
-      // }
-      // elseif($row["usertype"]=="admin")
-      // {
-      //    $_SESSION["admin"]=$row;
-         
-      //   header("location:adminpanel.php");
-      //   die;
-      // }
 
       $_SESSION['info'] = ($row);
       header("Location: userpanel.php");
+      UNSET($_SESSION['score']);
       die;
     }else{
       $error = "Wrong Username or Password";
     }
+
+    // $row = mysqli_fetch_assoc($result);
+    // if ($usertype['info'] == 'admin'){
+    //   $_SESSION['info'] = ($row);
+    //   header("Location: adminpanel.php");
+    //   die;
+    // }else if ($usertype['info'] == 'user'){
+    //   $_SESSION['info'] = ($row);
+    //   header("Location: userpanel.php");
+    //   die;
+    // }
+    // }else{
+    //   $error = "Wrong Username or Password";
+    // }
   }
 ?>
 
@@ -59,7 +59,7 @@ include('parts/part.nav.php')
         <div class="col-md-5">
           <!-- HEADER TITLE(LOGIN FORM) -->
           <h2>
-            G1 Boost | Login
+            Login
           </h2>
           <!-- HEADER PARAGRAPH -->
           <p></p>

@@ -2,6 +2,35 @@
   require ('parts/addon.function.php');
   // check_login();
 ?>
+
+<?php
+    // Set Questions Number
+    $number = (int) $_GET['n'];
+    
+    // Get total number of questions
+    $query = "select * from `questions`";
+    // Get results
+    $results = mysqli_query($con,$query);
+    $total = $results->num_rows;
+
+    // Get Questions
+    $query = "select * from questions where question_number = '$number'";
+    // Get Results
+    $result = mysqli_query($con,$query);
+    // $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+    // $question = mysqli_fetch_assoc($result);
+    $question = $result->fetch_assoc();
+    // die;
+
+    // Get Choices
+    $query = "select * from choices 
+      where question_number = '$number'";
+    // Get Results
+    $choices = mysqli_query($con,$query);
+
+    // die;
+?>
+
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
 <title>Driving Test | Contact</title>
@@ -22,7 +51,7 @@
       <div class="row align-items-center justify-content-center">
         <!-- RIGHT -->
         <div class="col-md-5">
-          <!-- HEADER TITLE(LOGIN FORM) -->
+          <!-- QUIZ TYPE INFO -->
           <div class="row align-items-center">
             <div class="col-md-7">
               <h6>
@@ -31,48 +60,68 @@
             </div>
             <div class="col-md-2">
               <h6>
-                01/40
+                <?php
+                  echo $question['question_number'];
+                ?>/
+                <?php
+                  echo $total;
+                ?>
               </h6>
             </div>
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
               <a href="quiztype.php">
                 <button type="button" class="btn btn-primary col">
                   End Test
                 </button>
               </a>
-            </div>
+            </div> -->
           </div>
-          <!-- HEADER PARAGRAPH -->
-          <h2 class="p-2">
-            How quickly are you obligated to report an accident to the police?
-          </h2>
+
+          <div class="row align-items-center">
+            <!-- QUIZ QUESTION -->
+            <h5 class="p-2">
+              <?php 
+                echo $question['text'];
+              ?>!
+              How quickly are you obligated to report an accident to the police?
+            </h5>
+          </div>
           
+          <div class="row align-items-center">
           <!-- Quiz FORM -->
-          <form action="#" method="POST">
-            <!-- Option1 -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-              <label class="form-check-label" for="flexRadioDefault1"> Within 72 hours.  </label>
-            </div>
-            <!-- Option2 -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked/>
-              <label class="form-check-label" for="flexRadioDefault2"> Within 48 hours. </label>
-            </div>
-            <!-- Option3 -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked/>
-              <label class="form-check-label" for="flexRadioDefault3"> Within 24 hours. </label>
-            </div>
-            <!-- Option4 -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" checked/>
-              <label class="form-check-label" for="flexRadioDefault4"> Immediately </label>
-            </div>
-            <div class="col-12 pt-3">
-              <input type="submit" class="btn btn-primary">
-            </div>
-          </form>
+            <form action="quizlogic.php" method="POST">
+              <!-- CHOICES -->
+              <!-- <php while ($row = $choices)  -->
+              <?php while($row = $choices->fetch_assoc()): ?>
+                
+                <div class="form-check">
+
+                  <input class="form-check-input" type="radio" name="choice" id="flexRadioDefault1" required value=
+                      "<?php 
+                      echo $row['id']
+                      ?>"
+                  />
+                  <label class="form-check-label" for="flexRadioDefault1">
+                      <?php
+                        echo $row['text']
+                      ?>
+                  </label>
+  
+                </div>
+              <?php endwhile; ?>
+
+              <div class="col-12 pt-3">
+                <input type="submit" class="btn btn-primary">
+                <input type="hidden" name="number" value=
+                "
+                  <?php
+                    echo $number;
+                  ?>
+                ">
+              </div>
+            </form>
+          </div>
+
         </div>
         <!-- LEFT -->
         <div class="col-md-5">
