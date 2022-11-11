@@ -33,10 +33,10 @@
             
             <?php if(isAdmin()):?>
               <li class="nav-item">
-                <a class="nav-link" href="adminpanel.php">Admin Control</a>
+                <a class="nav-link" href="adminpanel.php">Admin</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="adminpaneladd.php">Admin Add</a>
+                <a class="nav-link" href="adminpaneladd.php">Quiz Bank</a>
               </li>
             <?php else:?>
             <li class="nav-item">

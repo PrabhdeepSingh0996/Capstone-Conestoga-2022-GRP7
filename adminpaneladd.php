@@ -2,6 +2,50 @@
   require ('parts/addon.function.php');
   // check_login();
 
+  // // Get variables with post
+  // if(!isset($_POST['submit'])){
+  //   $question_number = $_Post['question_number'];
+  //   $question_text = $_Post['question_text'];
+  //   // Choices Array
+  //   $choices = array();
+  //   // Passing variables into choices
+  //   $choices[1] = $_POST['choice1'];
+  //   $choices[2] = $_POST['choice2'];
+  //   $choices[3] = $_POST['choice3'];
+  //   $choices[4] = $_POST['choice4'];
+
+  //   // Inserting data into question table
+  //   $query = "insert into `questions`(question_number, text) values('$question_number', '$question_text')"; 
+  //   // Running query
+  //   $insert_row = $mysqli->query($query) or die($mysqli->error);
+  //   // $insert_row = mysqli_query($con,$query);
+  //   // Validation inserted data
+  //   if($insert_row){
+  //     foreach($choices as $choice => $value){
+  //       if($value != ''){
+  //         if($correct_choice == $choice){
+  //           $is_correct = 1;
+  //         }else{
+  //           $is_correct = 0;
+  //         }
+  //         // choice query
+  //         $query = "insert into `choices` (question_number, is_correct, text) values ('question_number','$is_correct','$value')";
+  //         // run query
+  //         $insert_row = $mysqli->query($query) or die($mysqli->error);
+  //         // $insert_row = mysqli_query($con,$query);
+  //         // validate insert
+  //         if($insert_row){
+  //           continue;
+  //         }else{
+  //           die;
+  //         }
+  //     }
+  //   }
+  // }
+  //   $msg = 'Question has been added';
+  //   // Inserting data into choices table
+
+  // }
 
 ?>
 
@@ -35,6 +79,14 @@
             <p>
                 Here you can add your questions to the Quiz Bank.
             </p>
+          </div>
+          <div class="row align-items-center">
+            <!-- MESSAGE -->
+            <?php
+              // if(isset($msg)){
+                // echo '<p>'.$msg.'</p>';
+              // }
+            ?>
           </div>
           
           <div class="">

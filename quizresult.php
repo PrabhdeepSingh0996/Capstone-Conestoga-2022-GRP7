@@ -48,7 +48,6 @@
                 You have answered 
                 <?php
                   echo $_SESSION['score'];
-                  // echo $_SESSION['info']['userscore'];
                 ?> 
                 questions correctly
                  <!-- out of the 5 questions. -->
