@@ -1,6 +1,12 @@
 <?php
   require ('parts/addon.function.php');
   // check_login();
+
+
+  if (empty($_SESSION['score'])){
+    $_SESSION['score'] = 0;
+  }
+
 ?>
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>

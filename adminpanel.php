@@ -1,12 +1,16 @@
 <?php
   require ('parts/addon.function.php');
   // check_login();
-  print_r($_GET);
+  // print_r($_GET);
+
+  if (!isAdmin()){
+    header('location: index.php');
+  }
 ?>
 
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
-<title>G1 Boost | Admin Panel</title>
+<title>Admin Panel</title>
 
 <!-- NAV -->
 <?php
@@ -20,12 +24,12 @@ include('parts/part.nav.php')
         <div class="col-md-5">
           <!-- HEADER TITLE(LOGIN FORM) -->
           <h2>
-            G1 Boost | Admin Panel
+            Admin Panel
           </h2>
           <!-- HEADER PARAGRAPH -->
           <p>Welcome 
             <?php 
-              echo $_SESSION['user']['first_name'];
+              echo $_SESSION['info']['first_name'];
             ?>!
             <br>Here you can view all the users and make changes to them.
           </p>
@@ -55,28 +59,28 @@ include('parts/part.nav.php')
                 <td>
                   <p class="fw-normal mb-1">
                     <?php
-                      echo $_SESSION['user']['first_name'];
+                      echo $_SESSION['info']['first_name'];
                     ?>
                   </p>
                 </td>
                 <td>
                   <p class="fw-normal mb-1">
                     <?php
-                      echo $_SESSION['user']['last_name'];
+                      echo $_SESSION['info']['last_name'];
                     ?>
                   </p>
                 </td>
                 <td>
                   <p class="fw-normal mb-1">
                     <?php
-                      echo $_SESSION['user']['email'];
+                      echo $_SESSION['info']['email'];
                     ?>
                   </p>
                 </td>
                 <td>
                   <p class="fw-normal mb-1">
                     <?php
-                      echo $_SESSION['user']['username'];
+                      echo $_SESSION['info']['username'];
                     ?>
                   </p>
                 </td>

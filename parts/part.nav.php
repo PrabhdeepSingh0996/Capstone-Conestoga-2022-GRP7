@@ -11,13 +11,7 @@
             <a class="nav-link" href="quiztype.php">Quiz</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="adminpanel.php">Admin</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="quizresult.php">Result</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="adminpaneladd.php">Admin Add</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about.php">About Us</a>
@@ -36,10 +30,22 @@
             <li class="nav-item">
               <a class="nav-link " href="logout.php" tabindex="-1">Log Out</a>
             </li>
+            
+            <?php if(isAdmin()):?>
+              <li class="nav-item">
+                <a class="nav-link" href="adminpanel.php">Admin Control</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="adminpaneladd.php">Admin Add</a>
+              </li>
+            <?php else:?>
             <li class="nav-item">
               <a class="nav-link " href="userpanel.php" tabindex="-1">User Panel</a>
             </li>
+            <?php endif;?>
           <?php endif;?>
+          
+
         </ul>
       </div>
     </div>
