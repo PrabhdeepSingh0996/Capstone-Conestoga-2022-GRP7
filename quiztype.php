@@ -4,7 +4,7 @@
 ?>
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
-<title>Driving Test | Contact</title>
+<title>G1 Boost | Quiz Type</title>
 <!-- HEAD -->
 
 <!-- NAV -->

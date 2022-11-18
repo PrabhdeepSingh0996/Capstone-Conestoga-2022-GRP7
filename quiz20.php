@@ -4,28 +4,26 @@
 ?>
 
 <?php
-    // Set Questions Number
+    // setting questions number
     $number = (int) $_GET['n'];
     
-    // Get total number of questions
+    // getting total number of questions
     $query = "select * from `questions`";
-    // Get results
+    // getting results
     $results = mysqli_query($con,$query);
     $total = $results->num_rows;
 
-    // Get Questions
+    // getting questions
     $query = "select * from questions where question_number = '$number'";
-    // Get Results
+    // getting results
     $result = mysqli_query($con,$query);
-    // $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-    // $question = mysqli_fetch_assoc($result);
     $question = $result->fetch_assoc();
     // die;
 
-    // Get Choices
+    // getting choices
     $query = "select * from choices 
       where question_number = '$number'";
-    // Get Results
+    // getting results
     $choices = mysqli_query($con,$query);
 
     // die;
@@ -33,7 +31,7 @@
 
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
-<title>Driving Test | Contact</title>
+<title>G1 Boost | 20 Question Quiz</title>
 <!-- HEAD -->
 
 <!-- NAV -->
@@ -82,8 +80,7 @@
             <h5 class="p-2">
               <?php 
                 echo $question['text'];
-              ?>!
-              How quickly are you obligated to report an accident to the police?
+              ?>
             </h5>
           </div>
           

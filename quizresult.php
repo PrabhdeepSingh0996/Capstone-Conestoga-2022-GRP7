@@ -10,7 +10,7 @@
 ?>
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
-<title>Driving Test | Contact</title>
+<title>G1 Boost | Quiz Results</title>
 <!-- HEAD -->
 
 <!-- NAV -->
@@ -36,12 +36,6 @@
               </h4>
             </div>
           </div>
-
-          <!-- <div class="">
-            <h5 class="p-2">
-                Congratulations!
-            </h5> 
-          </div> -->
           
           <div class="">
             <p class="p-2">

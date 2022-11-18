@@ -10,7 +10,7 @@
 
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
-<title>Admin Panel</title>
+<title>G1 Boost | Admin Panel</title>
 
 <!-- NAV -->
 <?php

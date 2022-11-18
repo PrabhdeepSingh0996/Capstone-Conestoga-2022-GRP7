@@ -4,14 +4,14 @@
   
   if($_SERVER['REQUEST_METHOD'] == "POST")
   {
-    // Adding data to cutom variables from array
+    // adding data to cutom variables from array
     // addslashes funtion to convert input into strings
     $username = addslashes($_POST['username']);
     $password = addslashes($_POST['password']);
 
     $query = "select * from user where username = '$username' && password = '$password' limit 1";
 
-    // Capturing mysqli query results into variable result
+    // capturing mysqli query results into variable result
     $result = mysqli_query($con,$query);
 
     if (mysqli_num_rows($result) > 0){
@@ -25,26 +25,12 @@
     }else{
       $error = "Wrong Username or Password";
     }
-
-    // $row = mysqli_fetch_assoc($result);
-    // if ($usertype['info'] == 'admin'){
-    //   $_SESSION['info'] = ($row);
-    //   header("Location: adminpanel.php");
-    //   die;
-    // }else if ($usertype['info'] == 'user'){
-    //   $_SESSION['info'] = ($row);
-    //   header("Location: userpanel.php");
-    //   die;
-    // }
-    // }else{
-    //   $error = "Wrong Username or Password";
-    // }
   }
 ?>
 
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
-<title>Driving Test | Login</title>
+<title>G1 Boost | Login</title>
 
 <!-- NAV -->
 <?php 

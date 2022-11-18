@@ -5,9 +5,9 @@
 
 <?php
 
-    // Get Questions
+    // getting Questions
     $query = "select * from questions";
-    // Get Results
+    // getting Results
     $result = mysqli_query($con,$query);
     $total = $result->num_rows;
     // die;
@@ -15,7 +15,7 @@
 
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
-<title>Driving Test | Contact</title>
+<title>G1 Boost | Quiz Info</title>
 <!-- HEAD -->
 
 <!-- NAV -->

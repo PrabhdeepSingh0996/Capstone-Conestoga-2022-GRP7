@@ -4,13 +4,13 @@
 
   if($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['username']))
   {
-    // Adding data to cutom variables from array
-    // uploading image
+    // adding data to cutom variables from array
+    // variable to flag image false
     $image_added = false;
     if(!empty($_FILES['image']['name']) && $_FILES['image']['error'] == 0){
-      // file uploaded
+      // uploading an image
       $folder = "uploads/";
-
+      // checking if folder uploads exists then providing writing permissions to create folder if it doesn't
       if(!file_exists($folder))
       {
         // permission to write
@@ -18,7 +18,9 @@
       }
 
       $image = $folder . $_FILES['image']['name'];
+      // moving the uploaded file to the folder
       move_uploaded_file($_FILES['image']['tmp_name'], $image);
+      // setting the previous flag to true after uploading image
       $image_added = true;
     }
     // addslashes funtion to convert input into strings
@@ -34,10 +36,10 @@
     }else{
       $query = "update user set first_name = '$first_name', last_name = '$last_name', username = '$username', email = '$email', password = '$password' where user_id = $user_id limit 1";
     }
-    // Capturing mysqli query results into variable result
+    // capturing mysqli query results into variable result
     $result = mysqli_query($con,$query);
 
-    // Re-Run select query to refresh data (image).
+    // re-running select query to refresh the data to show newly uploaded image.
     $query = "select * from user where user_id = '$user_id' limit 1";
     $result = mysqli_query($con,$query);
     if (mysqli_num_rows($result) > 0){
@@ -202,8 +204,7 @@ include('parts/part.nav.php')
         <!-- LEFT -->
         <div class="col-md-3">
           <img src="<?php echo $_SESSION['info']['image']?>" class="img-fluid" alt="identification card header image">
-          <!-- <img src="img/profile.png" class="img-fluid" alt="identification card header image"> -->
-        </div>
+          </div>
       </div>
     </div>
   </header>

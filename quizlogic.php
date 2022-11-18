@@ -6,37 +6,34 @@ if(!isset($_SESSION['score'])){
 }
 
 if($_POST){ 
-    // print_r($_POST);
-    // Selecting choice and question number
+    // selecting a choice and the question number
     $number = $_POST['number'];
     $selected_choice = $_POST['choice'];
     $next = $number+1;
     
-    // Get total number of questions
+    // getting total number of questions
     $query = "select * from `questions`";
-    // Get results
+    // getting results
     $results = mysqli_query($con,$query);
     $total = $results->num_rows;
 
-    // Verify choice
+    // verifying the choice
 
     $query = "select * from `choices` 
       where question_number = $number AND is_correct = 1";
-    // Result
+    // getting results
     $results = mysqli_query($con,$query);
-    // Get row
-    // $row = mysqli_fetch_assoc($result);
+    // getting row
     $row = $results->fetch_assoc();
-    // Set the correct choice
+    // setting the correct choice
     $correct_choice = $row['id'];
-    // Compare choice
+    // comparing the choices
     if($correct_choice == $selected_choice){
-        // if correct choice
+        // if the choice is correct
         $_SESSION['score']++;
-        // $_SESSION['info']['userscore']++;
     }
 
-    // Check if it's the last question
+    // checking if it is the last question in the quiz
     if($number == $total){
         header("Location: quizresult.php");
         exit();

@@ -4,33 +4,17 @@
 
   if($_SERVER['REQUEST_METHOD'] == "POST")
   {
-    // Adding data to cutom variables from array
+    // adding data to cutom variables from array
     // addslashes funtion to convert input into strings
     $first_name = addslashes($_POST['first_name']);
     $last_name = addslashes($_POST['last_name']);
     $username = addslashes($_POST['username']);
     $email = addslashes($_POST['email']);
     $password = addslashes($_POST['password']);
-    
-    // $image_added = false;
-    // if(!empty($_FILES['image']['name']) && $_FILES['image']['error'] == 0){
-    //   // file uploaded
-    //   $folder = "uploads/";
-
-    //   if(!file_exists($folder))
-    //   {
-    //     // permission to write
-    //     mkdir($folder,0777,true);
-    //   }
-
-    //   $image = $folder . $_FILES['image']['name'];
-    //   move_uploaded_file($_FILES['image']['tmp_name'], $image);
-    //   $image_added = true;
-    // }
 
     $query = "insert into user (first_name,last_name,email,username,password) values ('$first_name','$last_name','$email','$username','$password')";
 
-    // Capturing mysqli query results into variable result
+    // capturing mysqli query results into variable result
     $result = mysqli_query($con,$query);
 
     header("Location: login.php");
@@ -40,7 +24,7 @@
 
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
-<title>Driving Test | Register</title>
+<title>G1 Boost | Register</title>
 
 <!-- NAV -->
 <?php 
