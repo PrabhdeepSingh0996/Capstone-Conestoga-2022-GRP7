@@ -194,11 +194,6 @@ include('parts/part.nav.php')
                 </button>
               </a>
             </div>
-              <form method="post">
-                <div class="col-12 pt-3">
-                  <input type="submit" class="btn btn-primary">
-                </div>
-              </form>
           <?php endif;?>
         </div>
         <!-- LEFT -->

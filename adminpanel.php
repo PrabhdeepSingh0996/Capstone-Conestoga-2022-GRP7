@@ -3,9 +3,9 @@
   // check_login();
   // print_r($_GET);
 
-  if (!isAdmin()){
-    header('location: index.php');
-  }
+  // if (!isAdmin()){
+  //   header('location: index.php');
+  // }
 ?>
 
 <!-- HEAD -->
@@ -33,63 +33,55 @@ include('parts/part.nav.php')
             ?>!
             <br>Here you can view all the users and make changes to them.
           </p>
-          <table class="table align-middle mb-0">
+          <table class="table-responsive table align-middle mb-0">
             <thead>
               <tr>
-                <th>Image</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Username</th>
-                <th>Actions</th>
+                <th scope="col">Image</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Username</th>
+                <th scope="col" colspan="2">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <!-- https://pixabay.com/illustrations/profile-pic-profile-avatar-design-7437435/ -->
-                    <img
-                      src="img/profile.png"
-                      alt=""
-                      class="rounded-circle profile-icon"
-                    />
-                  </div>
-                </td>
-                <td>
-                  <p class="fw-normal mb-1">
-                    <?php
-                      echo $_SESSION['info']['first_name'];
-                    ?>
-                  </p>
-                </td>
-                <td>
-                  <p class="fw-normal mb-1">
-                    <?php
-                      echo $_SESSION['info']['last_name'];
-                    ?>
-                  </p>
-                </td>
-                <td>
-                  <p class="fw-normal mb-1">
-                    <?php
-                      echo $_SESSION['info']['email'];
-                    ?>
-                  </p>
-                </td>
-                <td>
-                  <p class="fw-normal mb-1">
-                    <?php
-                      echo $_SESSION['info']['username'];
-                    ?>
-                  </p>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-custom-aqua btn-sm btn-rounded">
-                    Edit
-                  </button>
-                </td>
-              </tr>
+              <?php
+                $query = "SELECT * FROM `user`";
+                $query = mysqli_query($con,$query);
+                if (mysqli_num_rows($query) > 0){
+                    foreach($query as $user){
+                      ?>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center"> <img src=
+                            "<?php 
+                              echo $user['image']
+                            ?>"
+                              class="img-fluid .rounded shadow-2-strong img-thumbnail img-thumb-max" alt="identification card header image">
+                          </div>
+                        </td>
+                        <td> <p class="fw-normal mb-1"> <?= $user['first_name']; ?> </p> </td>
+                        <td> <p class="fw-normal mb-1"> <?= $user['last_name']; ?> </p> </td>
+                        <td> <p class="fw-normal mb-1"> <?= $user['email']; ?> </p> </td>
+                        <td> <p class="fw-normal mb-1"> <?= $user['username']; ?> </p> </td>
+
+                        <td> 
+                          <a href="adminedit.php?id=<?= $user['user_id']; ?>">
+                            <button type="button" class="btn btn-success btn-sm btn-rounded"> Edit </button>
+                          </a>
+                        </td>
+                        <td> 
+                          <a href="useredit.php?id=<?= $user['user_id']; ?>">
+                          <button type="button" class="btn btn-danger btn-sm btn-rounded"> Delete </button>
+                          </a>
+                        </td>
+                      </tr>
+              <?php
+                    }
+                }else{
+                  echo "<h3>No records</h3>";
+                }
+              ?>
             </tbody>
           </table>
           <form method="post">
