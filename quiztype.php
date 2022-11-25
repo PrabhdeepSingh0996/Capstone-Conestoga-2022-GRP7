@@ -34,7 +34,7 @@
             <div class="col-12 p-1">
               <a href="quiz20.php">
                 <button type="button" class="btn btn-primary col-12">
-                  Basic 20 Rules 20 Signs Test
+                  Basic 20 Rules Test
                 </button>
               </a>
             </div>
