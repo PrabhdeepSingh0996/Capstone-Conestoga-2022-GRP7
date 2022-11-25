@@ -23,9 +23,9 @@ include('parts/part.wave_bottom.php')
       <div class="row align-items-center justify-content-center">
         <div class="col-md-5">
           <!-- HEADER TITLE -->
-          <h2>
+          <h1>
             G1 Boost | Driving Test Practice
-          </h2>
+          </h1>
           <!-- HEADER PARAGRAPH -->
           <p>Try out our new approach to learning with interactive and fast paced quizes that will help you clear your G1 Test.</p>
           <!-- HEADER PARAGRAPH BUTTONS -->

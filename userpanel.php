@@ -67,9 +67,9 @@ include('parts/part.nav.php')
         <div class="col-md-5">
           <!-- HEADER TITLE(LOGIN FORM) -->
           <?php if(!empty($_GET['action']) && $_GET['action'] == 'edit'):?>
-            <h2>
+            <h1>
               Edit Mode
-            </h2>
+            </h1>
             <!-- HEADER PARAGRAPH -->
             <p>Welcome 
               <?php 
@@ -78,9 +78,9 @@ include('parts/part.nav.php')
               <br>In Edit mode you can change your Profile details.
             </p>
           <?php else:?>
-            <h2>
+            <h1>
               User Panel
-            </h2>
+            </h1>
             <!-- HEADER PARAGRAPH -->
             <p>Welcome 
               <?php 

@@ -23,9 +23,9 @@
         <!-- RIGHT -->
         <div class="col-md-5">
           <!-- HEADER TITLE(LOGIN FORM) -->
-          <h2>
+          <h1>
             Quiz Types
-          </h2>
+          </h1>
           <!-- HEADER PARAGRAPH -->
           <p>Select your test style and click on the begin button to start the test...</p>
           <!-- HEADER PARAGRAPH BUTTONS -->
@@ -34,18 +34,18 @@
             <div class="col-12 p-1">
               <a href="quiz20info.php">
                 <button type="button" class="btn btn-primary col-12">
-                  Basic 20 Rules 20 Signs Test
+                Basic 20 Rules Test
                 </button>
               </a>
             </div>
             <div class="col-12 p-1">
               <a href="quizfast.php">
                 <button type="button" class="btn btn-success col-12">
-                  Fast Paced Question marathon
+                  Question marathon
                 </button>
               </a>
             </div>
-            <div class="col-12 p-1">
+            <!-- <div class="col-12 p-1">
               <a href="quizsix.php">
                 <button type="button" class="btn btn-warning col-12">
                   Six Choices Test
@@ -65,7 +65,7 @@
                   Body Segmentation AI Interactive Sign Test
                 </button>
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- LEFT -->

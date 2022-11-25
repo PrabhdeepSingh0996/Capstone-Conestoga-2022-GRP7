@@ -1,11 +1,7 @@
 <?php
   require ('parts/addon.function.php');
   // check_login();
-  // print_r($_GET);
 
-  // if (!isAdmin()){
-  //   header('location: index.php');
-  // }
 ?>
 
 <!-- HEAD -->
@@ -23,15 +19,30 @@ include('parts/part.nav.php')
         <!-- RIGHT -->
         <div class="col-md-5">
           <!-- HEADER TITLE(LOGIN FORM) -->
-          <h2>
+          <h1>
             Admin Panel
-          </h2>
+          </h1>
           <!-- HEADER PARAGRAPH -->
           <p>Welcome 
             <?php 
               echo $_SESSION['info']['first_name'];
             ?>!
             <br>Here you can view all the users and make changes to them.
+          </p>
+          
+          <?php 
+            include('parts/addon.message.php') 
+          ?>
+
+          <!-- <div class="col-12 pt-3">
+            <a href="admincreate.php">
+              <button type="button" class="btn btn-outline-primary btn-sm btn-rounded"> Add a new user </button>
+            </a>
+          </div> -->
+          <p>
+            <?php
+              include('parts/addon.message.php')
+            ?>
           </p>
           <table class="table-responsive table align-middle mb-0">
             <thead>
@@ -57,7 +68,7 @@ include('parts/part.nav.php')
                             "<?php 
                               echo $user['image']
                             ?>"
-                              class="img-fluid .rounded shadow-2-strong img-thumbnail img-thumb-max" alt="identification card header image">
+                              class="img-fluid .rounded shadow-2-strong img-thumb-max" alt="identification card header image">
                           </div>
                         </td>
                         <td> <p class="fw-normal mb-1"> <?= $user['first_name']; ?> </p> </td>
@@ -66,29 +77,24 @@ include('parts/part.nav.php')
                         <td> <p class="fw-normal mb-1"> <?= $user['username']; ?> </p> </td>
 
                         <td> 
-                          <a href="adminedit.php?id=<?= $user['user_id']; ?>">
+                          <a href="adminedit.php?user_id=<?= $user['user_id']; ?>">
                             <button type="button" class="btn btn-success btn-sm btn-rounded"> Edit </button>
                           </a>
                         </td>
-                        <td> 
-                          <a href="useredit.php?id=<?= $user['user_id']; ?>">
-                          <button type="button" class="btn btn-danger btn-sm btn-rounded"> Delete </button>
-                          </a>
+                        <td>
+                          <form action="adminpanelcode.php" method="POST">
+                              <button type="submit" name="delete_user" value="<?=$user['user_id']; ?>" class="btn btn-danger btn-sm btn-rounded"> Delete </button>
+                          </form>
                         </td>
                       </tr>
               <?php
                     }
                 }else{
-                  echo "<h3>No records</h3>";
+                  echo "<h3>No Data Found.</h3>";
                 }
               ?>
             </tbody>
           </table>
-          <form method="post">
-            <div class="col-12 pt-3">
-              <input type="submit" class="btn btn-primary">
-            </div>
-          </form>
         </div>
         <!-- LEFT -->
         <div class="col-md-3">

@@ -6,7 +6,7 @@
 <?php
 
     // getting Questions
-    $query = "select * from questions";
+    $query = "select * from quiz";
     // getting Results
     $result = mysqli_query($con,$query);
     $total = $result->num_rows;
@@ -39,9 +39,9 @@
           <div class="row align-items-center">
             <!-- START BUTTON -->
             <div class="col-md-12 pb-2">
-              <h2>
-                Basic 20 Rules and 20 Signs Test
-              </h2>
+              <h1>
+              Basic 10 Rules Test
+              </h1>
             </div>
           </div>
 
@@ -49,13 +49,13 @@
             <!-- START BUTTON -->
             <div class="col-md-12">
               <p>
-                G1 test is a 60 minutes long test where you have to answer 40 multiple-choice questions from which 20 questions are for rules of the road and other 20 are for the road signs.
+              G1 test is a test where you have to answer 20 multiple-choice questions from which 20 questions are for rules of the road and other 20 are for the road signs.
               </p>
             </div>
 
             <div class="col-md-12">
               <p>
-                In order to pass the test, one needs to answer a minimum of 16 questions correctly in both rules of the road and road signs.
+              In order to pass the test, one needs to answer a minimum of 16 questions correctly in both rules of the road and road signs.
               </p>
             </div>
 
@@ -83,7 +83,7 @@
               <div class="col-md-5">
                 <p>
                   <?php
-                    echo $total * .5;
+                    echo $total * .25;
                   ?> Minutes.
                 </p>
               </div>

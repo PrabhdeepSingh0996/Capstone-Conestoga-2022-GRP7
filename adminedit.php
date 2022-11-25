@@ -1,30 +1,10 @@
 <?php
   require ('parts/addon.function.php');
-  check_register();
-
-  if($_SERVER['REQUEST_METHOD'] == "POST")
-  {
-    // adding data to cutom variables from array
-    // addslashes funtion to convert input into strings
-    $first_name = addslashes($_POST['first_name']);
-    $last_name = addslashes($_POST['last_name']);
-    $username = addslashes($_POST['username']);
-    $email = addslashes($_POST['email']);
-    $password = addslashes($_POST['password']);
-
-    $query = "insert into user (first_name,last_name,email,username,password) values ('$first_name','$last_name','$email','$username','$password')";
-
-    // capturing mysqli query results into variable result
-    $result = mysqli_query($con,$query);
-
-    header("Location: login.php");
-    die;
-  }
 ?>
 
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
-<title>G1 Boost | Register</title>
+<title>G1 Boost | Admin Edit</title>
 
 <!-- NAV -->
 <?php 
@@ -38,47 +18,76 @@ include('parts/part.nav.php')
         <!-- RIGHT -->
         <div class="col-md-5">
           <!-- HEADER TITLE(REGISTRATION FORM) -->
-          <h2>
-            Register
-          </h2>
+          <h1>
+            Edit a user.
+          </h1>
           <!-- HEADER PARAGRAPH -->
-          <p>Please fill out the form below to register a new account with us.</p>
-          <form method="post">
+          <p>Here you can edit a existing account.</p>
+
+          <?php 
+            include('parts/addon.message.php') 
+          ?>
+
+          <?php
+            if(isset($_GET['user_id'])){
+              $user_id = mysqli_real_escape_string($con, $_GET['user_id']);
+              $query = "SELECT * FROM `user` WHERE user_id='$user_id'";
+              $query_run = mysqli_query($con, $query);
+
+              if (mysqli_num_rows($query_run) > 0){
+                $user = mysqli_fetch_array($query_run);
+          ?>
+
+          <form method="post" action="adminpanelcode.php">
             <div class="row align-items-center justify-content-center">
+              <input type="hidden" value="<?=$user['user_id'];?>" name="user_id" class="form-control" id="inputUserID">
               <div class="col-md-6">
                 <label for="First Name" class="form-label">First Name</label>
-                <input type="First Name" name="first_name" class="form-control" id="inputFirstName" placeholder="First Name " required>
+                <input type="First Name" value="<?=$user['first_name'];?>" name="first_name" class="form-control" id="inputFirstName" placeholder="First Name " required>
               </div>
               <div class="col-md-6">
                 <label for="Last Name" class="form-label">Last Name</label>
-                <input type="Last Name" name="last_name" class="form-control" id="inputLastName" placeholder="Last Name" required>
+                <input type="Last Name" value="<?=$user['last_name'];?>"  name="last_name" class="form-control" id="inputLastName" placeholder="Last Name" required>
               </div>
             </div>
             <div class="cold-md-12">
                 <label for="inputEmail" class="form-label">Enter Your Email Address</label>
-                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email Address" required>
+                <input type="email" value="<?=$user['email'];?>"  name="email" class="form-control" id="inputEmail" placeholder="Email Address" required>
             </div>
             <div class="row align-items-center justify-content-center">
               <div class="col-md-6">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username" required>
+                <input type="text" value="<?=$user['username'];?>"  name="username" class="form-control" id="inputUsername" placeholder="Username" required>
               </div>
               <div class="col-md-6">
                 <label for="inputPassword" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password" required>
+                <input type="password" value="<?=$user['password'];?>"  name="password" class="form-control" id="inputPassword" placeholder="Password" required>
               </div>
               <div class="col-md-12 pt-2 pb-2 d-none">
                   <input type="file" name="image" class="form-control" id="inputImage" value="uploads/profile.png">
                 </div>
             </div>
             <div class="col-12 pt-3">
-              <button type="submit" class="btn btn-primary">Register</button>
+              <button type="submit" name="update_user" class="btn btn-primary">Update User</button>
             </div>
           </form>
+          
+          <?php
+              }
+              else
+              {
+                echo "Unable to find any data.";
+              }
+            }
+          ?>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-3">
           <!-- https://pixabay.com/vectors/icon-icons-question-mark-button-354008/ -->
-          <img src="img/register.png" class="img-fluid" alt="identification card header image">
+          <img src=
+            "<?php 
+              echo $user['image']
+            ?>"
+              class="img-fluid" alt="identification card header image">
         </div>
       </div>
     </div>

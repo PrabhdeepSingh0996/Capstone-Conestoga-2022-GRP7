@@ -24,9 +24,5 @@ function check_register()
     {
         header("Location: userpanel.php");
         die;
-    // }
-    // elseif(!empty($_SESSION['admin'])){
-    //     header("Location: adminpanel.php");
-    //     die;
     }
 }

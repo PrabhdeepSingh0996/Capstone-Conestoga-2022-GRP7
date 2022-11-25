@@ -38,9 +38,9 @@ include('parts/part.nav.php')
         <!-- RIGHT -->
         <div class="col-md-5">
           <!-- HEADER TITLE(REGISTRATION FORM) -->
-          <h2>
+          <h1>
             Register
-          </h2>
+          </h1>
           <!-- HEADER PARAGRAPH -->
           <p>Please fill out the form below to register a new account with us.</p>
           <form method="post">

@@ -22,9 +22,9 @@
       <div class="row align-items-center justify-content-center">
         <div class="col-md-5">
           <!-- HEADER TITLE -->
-          <h2>
+          <h1>
             About Us
-          </h2>
+          </h1>
           <p>
             
           </p>

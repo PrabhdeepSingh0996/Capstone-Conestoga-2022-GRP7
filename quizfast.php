@@ -48,9 +48,9 @@
             </div>
           </div>
           <!-- HEADER PARAGRAPH -->
-          <h2 class="p-2">
+          <h1 class="p-2">
             How quickly are you obligated to report an accident to the police?
-          </h2>
+          </h1>
           
           <!-- Quiz FORM -->
           <form action="#" method="POST">

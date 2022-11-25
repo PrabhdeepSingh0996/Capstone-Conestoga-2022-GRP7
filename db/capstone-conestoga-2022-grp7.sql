@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2022 at 06:07 PM
+-- Generation Time: Nov 25, 2022 at 04:42 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -18,10 +18,70 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mydb`
+-- Database: `capstone-conestoga-2022-grp7`
 --
-CREATE DATABASE IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `mydb`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `choices`
+--
+
+CREATE TABLE `choices` (
+  `id` int(11) NOT NULL,
+  `question_number` int(11) NOT NULL,
+  `is_correct` tinyint(1) NOT NULL DEFAULT 0,
+  `text` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `choices`
+--
+
+INSERT INTO `choices` (`id`, `question_number`, `is_correct`, `text`) VALUES
+(1, 1, 0, 'Within 72 hours'),
+(2, 1, 0, 'Within 48 hours'),
+(3, 1, 0, 'Within 24 hours'),
+(4, 1, 1, 'Immediately'),
+(5, 2, 1, 'The pedestrian'),
+(6, 2, 0, 'Motorists making a turn'),
+(7, 2, 0, 'Motorists coming from his right'),
+(8, 2, 0, 'Motorists coming from his left'),
+(9, 3, 1, 'Hard braking'),
+(10, 3, 0, 'Driving too slowly'),
+(11, 3, 0, 'Accelerating too quickly'),
+(12, 3, 0, 'Driving too fast'),
+(13, 4, 0, 'Stop and wait for a green signal before making'),
+(14, 4, 1, 'Proceed with caution in the direction of the '),
+(15, 4, 0, 'Accelerating too quickly'),
+(16, 4, 0, 'Stop and then proceed'),
+(17, 5, 0, '$5000'),
+(18, 5, 0, '$200'),
+(19, 5, 1, '$2000'),
+(20, 5, 0, '$100');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL,
+  `payment_id` varchar(255) NOT NULL,
+  `payer_id` varchar(255) NOT NULL,
+  `payer_email` varchar(255) NOT NULL,
+  `amount` float(10,2) NOT NULL,
+  `currency` varchar(255) NOT NULL,
+  `payment_status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `payment_id`, `payer_id`, `payer_email`, `amount`, `currency`, `payment_status`) VALUES
+(1, 'PAYID-MOAOEKQ7CH52230BB561062C', 'C42MBSJETZUZQ', 'vbekee@hotmail.com', 0.05, 'CAD', 'approved');
 
 -- --------------------------------------------------------
 
@@ -31,11 +91,11 @@ USE `mydb`;
 
 CREATE TABLE `question` (
   `question_id` int(11) NOT NULL,
-  `question` varchar(255) NOT NULL,
-  `choice_1` varchar(255) NOT NULL,
-  `choice_2` varchar(255) NOT NULL,
-  `choice_3` varchar(255) NOT NULL,
-  `choice_4` varchar(255) NOT NULL,
+  `question` text NOT NULL,
+  `choice_1` text NOT NULL,
+  `choice_2` text NOT NULL,
+  `choice_3` text NOT NULL,
+  `choice_4` text NOT NULL,
   `correct_answer` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -49,7 +109,7 @@ INSERT INTO `question` (`question_id`, `question`, `choice_1`, `choice_2`, `choi
 (3, 'Out of the following, which 3 are causes of skids?', 'Hard braking', 'Driving too slowly', 'Accelerating too quickly', 'Driving too fast', 'Hard braking'),
 (4, 'What is indicated by a red signal light with a green arrow at an intersection?', 'Stop and wait for a green signal before makin', 'Proceed with caution in the direction of the ', 'Accelerating too quickly', 'Stop and then proceed', 'Proceed with caution in the direction of the '),
 (5, 'If damages or injuries exceed ______, you are legally obligated to report a collision to the police.', '$5000', '$200', '$2000', '$100', '$2000'),
-(6, 'Where on a roadway should you be prior to making a left turn if traffic moves in both directions?', 'It does not matter provided you signal', 'Close to the right-hand side of the roadway', 'Close to the left side of the roadway', 'Immediately to the right of the centerline of', 'Immediately to the right of the centerline of'),
+(6, 'Where on a roadway should you be prior to making a left turn if traffic moves in both directions?', 'It does not matter provided you signal', 'Close to the right-hand side of the roadway', 'Close to the left side of the roadway', 'Immediately to the right of the centerline of the roadway', 'Immediately to the right of the centerline of the roadway'),
 (7, 'What should you do before entering a freeway?', 'Stop on the acceleration lane, wait for an op', 'Signal and increase your speed to merge smoot', 'Slow down, and then enter freeway at a sharp ', 'Drive slowly and be prepared to stop for free', 'Signal and increase your speed to merge smoot'),
 (8, 'How quickly should you be able to stop in any road conditions?', 'Stop within 150 m', 'Stop within 60 m', 'Stop within a safe distance', 'Stop within 90 m', 'Stop within a safe distance'),
 (9, 'Before entering an intersection, what are you legally obligated to do?', 'Stop, sound horn, then proceed', 'Stop, and when it is safe to do so, proceed', 'Slow down and if way is clear, proceed', 'Slow down, sound horn and proceed', 'Stop, and when it is safe to do so, proceed'),
@@ -148,6 +208,60 @@ INSERT INTO `question` (`question_id`, `question`, `choice_1`, `choice_2`, `choi
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `questions`
+--
+
+CREATE TABLE `questions` (
+  `question_number` int(11) NOT NULL,
+  `text` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`question_number`, `text`) VALUES
+(1, 'How quickly are you obligated to report an accident to the police?'),
+(2, 'Who gets the right-of-way if a traffic signal changes color while a pedestrian is crossing the street?'),
+(3, 'Out of the following, which 3 are causes of skids?'),
+(4, 'What is indicated by a red signal light with a green arrow at an intersection?'),
+(5, 'If damages or injuries exceed ______, you are legally obligated to report a collision to the police.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quiz`
+--
+
+CREATE TABLE `quiz` (
+  `qid` int(5) DEFAULT NULL,
+  `Question` text DEFAULT NULL,
+  `opt1` text DEFAULT NULL,
+  `opt2` text DEFAULT NULL,
+  `opt3` text DEFAULT NULL,
+  `opt4` text DEFAULT NULL,
+  `woptcode` varchar(5) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `quiz`
+--
+
+INSERT INTO `quiz` (`qid`, `Question`, `opt1`, `opt2`, `opt3`, `opt4`, `woptcode`) VALUES
+(1, 'How quickly are you obligated to report an accident to the police?', 'Within 72 hours', 'Within 48 hours', 'Within 24 hours', 'Immediately', 'd'),
+(2, 'Who gets the right-of-way if a traffic signal changes color while a pedestrian is crossing the street?', 'The pedestrian', 'Motorists making a turn', 'Motorists coming from his right', 'Motorists coming from his left', 'a'),
+(3, 'Out of the following, which 3 are causes of skids?', 'Hard braking', 'Driving too slowly', 'Accelerating too quickly', 'Driving too fast', 'a'),
+(4, 'What is indicated by a red signal light with a green arrow at an intersection?', 'Stop and wait for a green signal before making a turn in the direction of the arrow', 'Proceed with caution in the direction of the arrow', 'That pedestrians may cross', 'Stop and then proceed', 'b'),
+(5, 'If damages or injuries exceed ______, you are legally obligated to report a collision to the police.', '$5000', '$200', '$2000', '$100', 'c'),
+(6, 'Where on a roadway should you be prior to making a left turn if traffic moves in both directions?', 'It does not matter provided you signal', 'Close to the right-hand side of the roadway', 'Close to the left side of the roadway', 'Immediately to the right of the centerline of the roadway', 'd'),
+(7, 'What should you do before entering a freeway?', 'Stop on the acceleration lane, wait for an opening, and then enter the freeway rapidly', 'Signal and increase your speed to merge smoothly with traffic', 'Slow down, and then enter freeway at a sharp angle', 'Drive slowly and be prepared to stop for freeway traffic', 'b'),
+(8, 'How quickly should you be able to stop in any road conditions?', 'Stop within 150 m', 'Stop within 60 m', 'Stop within a safe distance', 'Stop within 90 m', 'c'),
+(9, 'Before entering an intersection, what are you legally obligated to do?', 'Stop, sound horn, then proceed', 'Stop, and when it is safe to do so, proceed', 'Slow down and if way is clear, proceed', 'Slow down, sound horn and proceed', 'b'),
+(10, 'What will happen if you are convicted of careless driving?', 'All of these', 'Your license may be suspended for up to two years', 'Six demerit points', 'Can be fined up to $2,000 and sentenced to up to six months in jail', 'a');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `result`
 --
 
@@ -196,8 +310,28 @@ CREATE TABLE `user` (
   `email` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `test_id` int(11) NOT NULL
+  `usertype` varchar(45) DEFAULT '0',
+  `image` longblob DEFAULT '\'uploads/login.png\'',
+  `userscore` int(11) NOT NULL DEFAULT 0,
+  `total_attempt` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `email`, `username`, `password`, `usertype`, `image`, `userscore`, `total_attempt`) VALUES
+(16, 'fname1', 'lname1', 'email1@email.com', 'user1', 'user1', '1', 0x75706c6f6164732f70726f66696c652e706e67, 0, 0),
+(17, 'fname2', 'lname2', 'email2@email.com', 'user2', 'user2', '0', 0x75706c6f6164732f70726f66696c652e706e67, 0, 0),
+(18, 'fname3', 'lname3', 'email3@email.com', 'user3', 'user3', 'user', 0x75706c6f6164732f70726f66696c652e706e67, 0, 0),
+(27, 'fname4', 'lname4', 'email4@email.com', 'user4', 'user4', 'user', 0x2775706c6f6164732f6c6f67696e2e706e6727, 0, 0),
+(28, 'fname5', 'lname5', 'email5@email.com', 'user5', 'user5', 'user', 0x75706c6f6164732f70726f66696c652e706e67, 0, 0),
+(29, 'fname6', 'lname6', 'email6@email.com', 'user6', 'user6', 'user', '', 0, 0),
+(30, 'fname7', 'lname7', 'email7@email.com', 'user7', 'user7', 'user', '', 0, 0),
+(31, 'fname8', 'lname8', 'email8@email.com', 'user8', 'user8', 'user', 0x75706c6f6164732f70726f66696c652e706e67, 0, 0),
+(32, 'fname9', 'lname9', 'email9@email.com', 'user9', 'user9', 'user', 0x2775706c6f6164732f6c6f67696e2e706e6727, 0, 0),
+(34, 'fname11', 'lname11', 'email11@email.com', 'user11', 'user11', '0', 0x75706c6f6164732f70726f66696c652e706e67, 0, 0),
+(35, 'Barivure', 'Bekee', 'vbekee.bb@gmail.com', 'Vure', 'vure1', '1', 0x75706c6f6164732f75736572332e6a7067, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -215,11 +349,29 @@ CREATE TABLE `user_has_test` (
 --
 
 --
+-- Indexes for table `choices`
+--
+ALTER TABLE `choices`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `question`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`question_id`),
   ADD UNIQUE KEY `question_id_UNIQUE` (`question_id`);
+
+--
+-- Indexes for table `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`question_number`);
 
 --
 -- Indexes for table `result`
@@ -249,8 +401,9 @@ ALTER TABLE `test_has_question`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `user_id_UNIQUE` (`user_id`);
+  ADD UNIQUE KEY `user_id_UNIQUE` (`user_id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `user_has_test`
@@ -263,6 +416,18 @@ ALTER TABLE `user_has_test`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `choices`
+--
+ALTER TABLE `choices`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `question`
@@ -286,7 +451,7 @@ ALTER TABLE `test`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Constraints for dumped tables

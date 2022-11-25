@@ -44,9 +44,9 @@ include('parts/part.nav.php')
         <!-- RIGHT -->
         <div class="col-md-5">
           <!-- HEADER TITLE(LOGIN FORM) -->
-          <h2>
-            Login
-          </h2>
+          <h1>
+            G1 Boost | Login
+          </h1>
           <!-- HEADER PARAGRAPH -->
           <p></p>
           <!-- HEADER PARAGRAPH BUTTONS -->

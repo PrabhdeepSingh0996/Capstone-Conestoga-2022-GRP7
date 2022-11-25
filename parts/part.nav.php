@@ -10,14 +10,17 @@
           <li class="nav-item">
             <a class="nav-link" href="quiztype.php">Quiz</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="quizresult.php">Result</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="about.php">About Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="form.php">Donate</a>
           </li>
           <?php if(empty($_SESSION['info'])):?>
             <li class="nav-item">
@@ -38,9 +41,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="adminpanel.php">Admin Panel</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="adminpaneladd.php">Quiz Bank</a>
-              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="adminquestion.php">Quiz Bank</a>
+              </li> -->
             <?php else:?>
             <li class="nav-item">
               <a class="nav-link " href="userpanel.php" tabindex="-1">User Panel</a>
