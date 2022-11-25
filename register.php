@@ -1,7 +1,7 @@
 <?php
   require ('parts/addon.function.php');
-  check_register();
-
+  // check_register();
+  $error = "";
   if($_SERVER['REQUEST_METHOD'] == "POST")
   {
     // Adding data to cutom variables from array
@@ -11,14 +11,24 @@
     $username = addslashes($_POST['username']);
     $email = addslashes($_POST['email']);
     $password = addslashes($_POST['password']);
+    if(!preg_match("/^[a-zA-Z]*$/",$first_name)){
+     $error .= 'First name should contain only alphabets<br>';
+    }
+    if(!preg_match("/^[a-zA-Z]*$/",$last_name)){
+      $error .= 'Last name should contain only alphabets<br>';
+    }
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+      $error .= 'Email is not valid';  
+    }
+    if(preg_match("/^[a-zA-Z]*$/",$first_name) && preg_match("/^[a-zA-Z]*$/",$last_name) && filter_var($email,FILTER_VALIDATE_EMAIL)) {
+      $query = "insert into user (first_name,last_name,email,username,password) values ('$first_name','$last_name','$email','$username','$password')";
 
-    $query = "insert into user (first_name,last_name,email,username,password) values ('$first_name','$last_name','$email','$username','$password')";
+      // Capturing mysqli query results into variable result
+      $result = mysqli_query($con,$query);
 
-    // Capturing mysqli query results into variable result
-    $result = mysqli_query($con,$query);
-
-    header("Location: login.php");
-    die;
+      header("Location: login.php");
+      die;
+    }
   }
 ?>
 
@@ -43,7 +53,12 @@ include('parts/part.nav.php')
           </h2>
           <!-- HEADER PARAGRAPH -->
           <p>Please fill out the form below to register a new account with us.</p>
-          <form method="post">
+          <?php
+            if(!empty($error)){
+              echo "<div>" .$error. "</div>";
+            }
+          ?>
+          <form action="#" method="post">
             <div class="row align-items-center justify-content-center">
               <div class="col-md-6">
                 <label for="First Name" class="form-label">First Name</label>
@@ -56,7 +71,7 @@ include('parts/part.nav.php')
             </div>
             <div class="cold-md-12">
                 <label for="inputEmail" class="form-label">Enter Your Email Address</label>
-                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email Address" required>
+                <input type="text" name="email" class="form-control" id="inputEmail" placeholder="Email Address" required>
             </div>
             <div class="row align-items-center justify-content-center">
               <div class="col-md-6">
