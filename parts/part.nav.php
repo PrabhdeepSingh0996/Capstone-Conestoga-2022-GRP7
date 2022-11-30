@@ -19,6 +19,9 @@
           <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="form.php">Donate</a>
+          </li>
           <?php if(empty($_SESSION['info'])):?>
             <li class="nav-item">
               <a class="nav-link " href="login.php" tabindex="-1">Log In</a>
