@@ -5,6 +5,21 @@
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
 <title>G1 Boost | Home</title>
+<meta name="keywords" content="
+  G1
+">
+<meta name="description" content="
+  There is not much to say about us, We are a group of students from Conestoga College kitchener and we have created this website as our capstone project as a means to study for G1 Driving Test.
+">
+<meta name="author" content="
+  G1 Boost
+">
+<meta name="og:title" content="
+  There is not much to say about us, We are a group of students from Conestoga College kitchener and we have created this website as our capstone project as a means to study for G1 Driving Test.
+">
+<meta name="robots" content="
+  index, follow
+">
 
 <!-- NAV -->
 <?php include('parts/part.nav.php') ?>
@@ -14,7 +29,7 @@
 
 <!-- WAVE PATTERN Bottom -->
 <?php
-include('parts/part.wave_bottom.php')
+// include('parts/part.wave_bottom.php')
 ?>
 
   <!-- HEADER -->
@@ -30,15 +45,15 @@ include('parts/part.wave_bottom.php')
           <p>Try out our new approach to learning with interactive and fast paced quizes that will help you clear your G1 Test.</p>
           <!-- HEADER PARAGRAPH BUTTONS -->
           <a href="quiztype.php">
-            <button type="button" class="btn btn-outline-primary">
+            <button type="button" class="btn btn-outline-light">
               Check our different Test Types.
             </button>
           </a>
-          <a href="#" class="disabled">
+          <!-- <a href="#" class="disabled">
             <button type="button" class="btn btn btn-outline-success disabled">
               Read about our Learning Strategies.
             </button>
-          </a>
+          </a> -->
         </div>
           <!-- HEADER IMAGE -->
         <div class="col-md-5">

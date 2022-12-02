@@ -22,9 +22,9 @@
       <div class="row align-items-center justify-content-center">
         <div class="col-md-5">
           <!-- HEADER TITLE -->
-          <h2>
+          <h1>
           You have cancelled the payment process.
-          </h2>
+          </h1>
           
 
       </div>

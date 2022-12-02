@@ -6,7 +6,7 @@
         <div class="col-md-5">
           <!-- FOOTER TITLE -->
           <h2>
-            G1 Boost | Licence Practice Test
+            G1 Boost | Driving Licence Test
           </h2>
           <!-- FOOTER PARAGRAPH -->
           <p>Try out our new approach to learning with interactive and fast paced quizes that will help you clear your G1 Test.</p>
@@ -14,40 +14,42 @@
 
         <!-- FOOTER COL 2 -->
         <div class="col-md-5">
+
         <!-- FOOTER COL1.ROW 1 AND RELATED COLS -->
           <div class="row">
             <div class="col p-1">
-              Your Account
+              <a class="link-light text-decoration-none" href="index.php">
+                G1 Boost
+              </a>
             </div>
             <div class="col p-1">
-              Team
+              <a class="link-light text-decoration-none" href="quiztype.php">
+                Quiz List
+              </a>
             </div>
             <div class="col p-1">
-              <a class="link-secondary" href="about.php">About Us</a>
+              <a class="link-light text-decoration-none" href="about.php">
+                About Us
+              </a>
             </div>
           </div>
+
         <!-- FOOTER COL1.ROW 2 AND RELATED COLS -->
           <div class="row ">
             <div class="col p-1">
-              Quiz List
+              <a class="link-light text-decoration-none" href="userpanel.php">
+                Account
+              </a>
             </div>
             <div class="col p-1">
-              Terms of Service
+              <a class="link-light text-decoration-none" href="userpanel.php">
+                Donate
+              </a>
             </div>
             <div class="col p-1">
-              <a class="link-secondary" href="contact.php">Contact Us</a>
-            </div>
-          </div>
-        <!-- FOOTER COL1.ROW 3 AND RELATED COLS -->
-          <div class="row">
-            <div class="col p-1">
-              Results
-            </div>
-            <div class="col p-1">
-              Privacy Policy
-            </div>
-            <div class="col p-1">
-              Help
+              <a class="link-light text-decoration-none" href="contact.php">
+                Contact Us
+              </a>
             </div>
           </div>
         </div>

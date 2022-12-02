@@ -11,14 +11,30 @@
     $username = addslashes($_POST['username']);
     $email = addslashes($_POST['email']);
     $password = addslashes($_POST['password']);
+    if(!preg_match("/^[a-zA-Z]*$/",$first_name)){
+     $error .= 'First name should contain only alphabets<br>';
+    }
+    if(!preg_match("/^[a-zA-Z]*$/",$last_name)){
+      $error .= 'Last name should contain only alphabets<br>';
+    }
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+      $error .= 'Email is not valid';  
+    }
+    if(preg_match("/^[a-zA-Z]*$/",$first_name) && preg_match("/^[a-zA-Z]*$/",$last_name) && filter_var($email,FILTER_VALIDATE_EMAIL)) {
+      $result  = mysqli_query($con,"INSERT INTO User (first_name,last_name,email,username,password)
+        values ('$first_name','$last_name','$email','$username','$password')") 
+          or 
+            die(mysqli_error($con));
+            header("Location: login.php");
 
-    $query = "insert into user (first_name,last_name,email,username,password) values ('$first_name','$last_name','$email','$username','$password')";
+      // $query = "insert into user (first_name,last_name,email,username,password) values ('$first_name','$last_name','$email','$username','$password')";
 
-    // capturing mysqli query results into variable result
-    $result = mysqli_query($con,$query);
+      // // capturing mysqli query results into variable result
+      // $result = mysqli_query($con,$query);
+      // header("Location: login.php");
+      // die;
 
-    header("Location: login.php");
-    die;
+    }
   }
 ?>
 
@@ -43,6 +59,11 @@ include('parts/part.nav.php')
           </h1>
           <!-- HEADER PARAGRAPH -->
           <p>Please fill out the form below to register a new account with us.</p>
+          <?php
+            if(!empty($error)){
+              echo "<div>" .$error. "</div>";
+            }
+          ?>
           <form method="post">
             <div class="row align-items-center justify-content-center">
               <div class="col-md-6">

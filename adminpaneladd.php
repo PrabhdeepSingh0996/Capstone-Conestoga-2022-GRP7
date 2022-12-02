@@ -1,61 +1,7 @@
 <?php
   require ('parts/addon.function.php');
   check_login();
-
-//   // getting variables with post
-//   if(isset($_POST['submit'])){
-//     $qid = $_POST['qid'];
-//     $question_text = $_POST['question_text'];
-//     $correct_choice = $_POST['correct_choice'];
-//     // creating an array for choices
-//     $choices = array();
-//     $choices[1] = $_POST['choice1'];
-//     $choices[2] = $_POST['choice2'];
-//     $choices[3] = $_POST['choice3'];
-//     $choices[4] = $_POST['choice4'];
-
-//     // inserting data into question table
-//     $query = "INSERT INTO `questions`(`qid`, `text`) VALUES ('$qid', '$question_text')";
-//     // running insert_row query
-//     $insert_row = mysqli_query($con,$query);
-//     // validating inserted data
-//     // if insert_row query is run
-//     if($insert_row){
-//       // add data into choice index from choices
-//       foreach($choices as $choice => $value){
-//         // if value for choice is not empty
-//         if($value != ''){
-//           // if the correct_choice variable value is equal to the choice variable
-//           if($correct_choice == $choice){
-//             // set is_correct to 1 in the choice query
-//             $is_correct = 1;
-//           }else{
-//             // else set it to 0
-//             $is_correct = 0;
-//           }
-//           // choice query
-//           $query = "INSERT INTO `choices`(`qid`, `is_correct`, `text`) VALUES ('$qid','$is_correct','$value')";
-//           // runing the query
-//           $insert_row = mysqli_query($con,$query);
-//           // validating insert
-//           if($insert_row){
-//             continue;
-//           }else{
-//             die;
-//           }
-//         }
-//       }
-//     }
-//     $msg = 'The Question has been added!';
-//   }
-
-//   // Getting all the questions
-//   $query = "SELECT * FROM `questions`";
-//   // Getting the results
-//   $questions = mysqli_query($con,$query);
-//   $total = $questions->num_rows;
-//   $next = $total+1;
-// ?>
+?>
 
 <?php
 
@@ -140,9 +86,9 @@ include('parts/part.nav.php')
           <!-- ADMIN PANEL ADD INFO -->
           <div class="row align-items-center">
             <!-- ADD QUESTIONS -->
-            <h2>
+            <h1>
               Admin Panel
-            </h2>
+            </h1>
             <!-- HEADER PARAGRAPH -->
             <p>
                 Here you can add your questions to the Quiz Bank.

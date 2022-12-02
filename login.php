@@ -4,27 +4,43 @@
   
   if($_SERVER['REQUEST_METHOD'] == "POST")
   {
-    // adding data to cutom variables from array
+    // Adding data to cutom variables from array
     // addslashes funtion to convert input into strings
     $username = addslashes($_POST['username']);
     $password = addslashes($_POST['password']);
-
-    $query = "select * from user where username = '$username' && password = '$password' limit 1";
-
-    // capturing mysqli query results into variable result
-    $result = mysqli_query($con,$query);
-
-    if (mysqli_num_rows($result) > 0){
-      
-      $row = mysqli_fetch_assoc($result);
-
-      $_SESSION['info'] = ($row);
-      header("Location: userpanel.php");
-      UNSET($_SESSION['score']);
-      die;
-    }else{
-      $error = "Wrong Username or Password";
+    if($username == ""){
+      $error = "Empty Username";
     }
+    else if($password == ""){
+      $error = "Empty Password";
+    }
+    else{
+      if($username == ""){
+        $error .= "Username is empty";
+      }
+      if($password == ""){
+        $error = "Password is empty";
+      }
+      else if(!empty($username) && !empty($password)){
+        $query = "select * from user where username = '$username' && password = '$password' limit 1";
+
+        // Capturing mysqli query results into variable result
+        $result = mysqli_query($con,$query);
+
+        if (mysqli_num_rows($result) > 0){
+          
+          $row = mysqli_fetch_assoc($result);
+
+          $_SESSION['info'] = ($row);
+          header("Location: userpanel.php");
+          UNSET($_SESSION['score']);
+          die;
+        }else{
+          $error = "Wrong Username or Password";
+        }
+      }
+    }
+    
   }
 ?>
 

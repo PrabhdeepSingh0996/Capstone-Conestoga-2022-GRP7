@@ -24,15 +24,12 @@
           </li>
           <?php if(empty($_SESSION['info'])):?>
             <li class="nav-item">
-              <a class="nav-link " href="login.php" tabindex="-1">Log In</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="register.php" tabindex="-1">Register</a>
             </li>
-          <?php else:?>
             <li class="nav-item">
-              <a class="nav-link " href="logout.php" tabindex="-1">Log Out</a>
+              <a class="nav-link " href="login.php" tabindex="-1">Log In</a>
             </li>
+          <?php else:?>
             
             <?php if(isAdmin()):?>
               <li class="nav-item">
@@ -49,6 +46,11 @@
               <a class="nav-link " href="userpanel.php" tabindex="-1">User Panel</a>
             </li>
             <?php endif;?>
+
+          <li class="nav-item">
+            <a class="nav-link " href="logout.php" tabindex="-1">Log Out</a>
+          </li>
+          
           <?php endif;?>
           
 

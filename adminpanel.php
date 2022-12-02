@@ -34,11 +34,11 @@ include('parts/part.nav.php')
             include('parts/addon.message.php') 
           ?>
 
-          <!-- <div class="col-12 pt-3">
+          <div class="col-12 pt-3">
             <a href="admincreate.php">
               <button type="button" class="btn btn-outline-primary btn-sm btn-rounded"> Add a new user </button>
             </a>
-          </div> -->
+          </div>
           <p>
             <?php
               include('parts/addon.message.php')

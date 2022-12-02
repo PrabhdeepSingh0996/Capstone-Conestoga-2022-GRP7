@@ -1,5 +1,7 @@
-
-
+<?php
+  require ('parts/addon.function.php');
+  // check_login();
+?>
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
 <title>Driving Test | Login</title>
@@ -16,9 +18,9 @@ include('parts/part.nav.php')
         <!-- RIGHT -->
         <div class="col-md-5">
           <!-- HEADER TITLE(LOGIN FORM) -->
-          <h2>
+          <h1>
           Donate to Support Us
-          </h2>
+          </h1>
           <!-- HEADER PARAGRAPH -->
           <p>Please fill the form below</p>
           <!-- HEADER PARAGRAPH BUTTONS -->

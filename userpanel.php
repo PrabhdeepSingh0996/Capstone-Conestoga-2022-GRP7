@@ -4,13 +4,13 @@
 
   if($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['username']))
   {
-    // adding data to cutom variables from array
-    // variable to flag image false
+    // Adding data to cutom variables from array
+    // uploading image
     $image_added = false;
     if(!empty($_FILES['image']['name']) && $_FILES['image']['error'] == 0){
-      // uploading an image
+      // file uploaded
       $folder = "uploads/";
-      // checking if folder uploads exists then providing writing permissions to create folder if it doesn't
+
       if(!file_exists($folder))
       {
         // permission to write
@@ -18,9 +18,9 @@
       }
 
       $image = $folder . $_FILES['image']['name'];
-      // moving the uploaded file to the folder
+
       move_uploaded_file($_FILES['image']['tmp_name'], $image);
-      // setting the previous flag to true after uploading image
+      
       $image_added = true;
     }
     // addslashes funtion to convert input into strings
@@ -29,25 +29,45 @@
     $username = addslashes($_POST['username']);
     $email = addslashes($_POST['email']);
     $password = addslashes($_POST['password']);
-    $user_id = $_SESSION['info']['user_id'];
-
-    if ($image_added == true){
-      $query = "update user set first_name = '$first_name', last_name = '$last_name', username = '$username', email = '$email', password = '$password', image = '$image' where user_id = $user_id limit 1";
-    }else{
-      $query = "update user set first_name = '$first_name', last_name = '$last_name', username = '$username', email = '$email', password = '$password' where user_id = $user_id limit 1";
+    $error = "";
+    echo(strlen($username));
+    if($password == ""){
+      $error .= "Password cannot be empty <br>";
+      die;
     }
-    // capturing mysqli query results into variable result
-    $result = mysqli_query($con,$query);
-
-    // re-running select query to refresh the data to show newly uploaded image.
-    $query = "select * from user where user_id = '$user_id' limit 1";
-    $result = mysqli_query($con,$query);
-    if (mysqli_num_rows($result) > 0){
-      $_SESSION['info'] = mysqli_fetch_assoc($result);
+    if($username == ""){
+      $error .= "Empty Username";
+      die;
     }
+    if(!preg_match("/^[a-zA-Z]*$/",$first_name)){
+      $error .= 'First name should contain only alphabets<br>';
+    }
+    if(!preg_match("/^[a-zA-Z]*$/",$last_name)){
+      $error .= 'Last name should contain only alphabets<br>';
+    }
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+      $error .= 'Email is not valid';  
+    }
+    if(!empty($username) && !empty($password) && preg_match("/^[a-zA-Z]*$/",$first_name) && preg_match("/^[a-zA-Z]*$/",$last_name) && filter_var($email,FILTER_VALIDATE_EMAIL) ){
+      $user_id = $_SESSION['info']['user_id'];
+      if ($image_added == true){
+        $query = "update user set first_name = '$first_name', last_name = '$last_name', username = '$username', email = '$email', password = '$password', image = '$image' where user_id = $user_id limit 1";
+      }else{
+        $query = "update user set first_name = '$first_name', last_name = '$last_name', username = '$username', email = '$email', password = '$password' where user_id = $user_id limit 1";
+      }
+      // Capturing mysqli query results into variable result
+      $result = mysqli_query($con,$query);
 
-    header("Location: userpanel.php");
-    die;
+      // Re-Run select query to refresh data (image).
+      $query = "select * from user where user_id = '$user_id' limit 1";
+      $result = mysqli_query($con,$query);
+      if (mysqli_num_rows($result) > 0){
+        $_SESSION['info'] = mysqli_fetch_assoc($result);
+      }
+
+      header("Location: userpanel.php");
+      die;
+      }
   }
 ?>
 
@@ -65,6 +85,12 @@ include('parts/part.nav.php')
       <div class="row align-items-center justify-content-center">
         <!-- RIGHT -->
         <div class="col-md-5">
+          <!-- <?php echo($error);?> -->
+          <?php
+            if(!empty($error)){
+              echo "<div>" .$error. "</div>";
+            }
+          ?>
           <!-- HEADER TITLE(LOGIN FORM) -->
           <?php if(!empty($_GET['action']) && $_GET['action'] == 'edit'):?>
             <h1>

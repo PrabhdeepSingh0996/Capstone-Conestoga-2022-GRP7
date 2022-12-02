@@ -5,27 +5,24 @@
 <!-- HEAD -->
 <?php require('parts/part.head.php') ?>
 <title>
-    G1 Boost | Contact Us
+  G1 Boost | Contact Us
 </title>
 <meta name="keywords" content="
   Contact
 ">
 <meta name="description" content="
-  Please feel free to contact us for any of your queries. Our contact details are lited below. We are very happy to see users enjoy our website and are always willing help anyone in need.
+We are a group of students from Conestoga College kitchener and we have created this website which is our capstone project with the idea of helping people to prepare for G1 Driving Test.
 ">
 <meta name="author" content="
   G1 Boost
 ">
 <meta name="og:title" content="
-  Please feel free to contact us for any of your queries. Our contact details are lited below. We are very happy to see users enjoy our website and are always willing help anyone in need.
+We are a group of students from Conestoga College kitchener and we have created this website which is our capstone project with the idea of helping people to prepare for G1 Driving Test.
 ">
 <meta name="robots" content="
   index, follow
 ">
 <!-- <link rel="canonical" href=""> -->
-
-
-<!-- HEAD -->
 
 <!-- NAV -->
 <?php include('parts/part.nav.php') ?>
@@ -43,10 +40,15 @@
         <div class="col-md-5">
           <!-- HEADER TITLE -->
           <h1>
-            Contact Details for Queries.
+            Contact Details for Queries
           </h1>
           <!-- HEADER PARAGRAPH -->
-          <p>Please reach out to us at our email and send us a message about your concerns.</p>
+          <p>
+            We are a group of students from Conestoga College kitchener and we have created this website which is our capstone project with the idea of helping people to prepare for G1 Driving Test.
+          </p>
+          <p>
+            Please feel free to contact us for any of your queries. We are very happy to see users enjoy our website and are always willing help anyone in need. Please use our <a class="text-decoration-none link-danger"href = "mailto: psingh6005@conestogac.on.ca">Email</a> to send us a message about your concerns.
+          </p>
         </div>
           <!-- HEADER IMAGE -->
         <div class="col-md-5">
