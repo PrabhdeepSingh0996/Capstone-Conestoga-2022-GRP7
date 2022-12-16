@@ -1,5 +1,5 @@
 <?php
-  require ('parts/addon.function.php');
+  require ('parts/addon_function.php');
   check_register();
   
   if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -30,24 +30,10 @@
         if (mysqli_num_rows($result) > 0){
           
           $row = mysqli_fetch_assoc($result);
-          
-          // if($row["usertype"]=="user")
-          // {
-          //    $_SESSION["info"]=$row; 
-        
-          //   header("location:userpanel.php");
-          //   die;
-          // }
-          // elseif($row["usertype"]=="admin")
-          // {
-          //    $_SESSION["admin"]=$row;
-            
-          //   header("location:adminpanel.php");
-          //   die;
-          // }
 
           $_SESSION['info'] = ($row);
           header("Location: userpanel.php");
+          UNSET($_SESSION['score']);
           die;
         }else{
           $error = "Wrong Username or Password";
@@ -59,12 +45,12 @@
 ?>
 
 <!-- HEAD -->
-<?php require('parts/part.head.php') ?>
-<title>Driving Test | Login</title>
+<?php require('parts/part_head.php') ?>
+<title>G1 Boost | Login</title>
 
 <!-- NAV -->
 <?php 
-include('parts/part.nav.php')
+include('parts/part_nav.php')
 ?>
 
   <!-- HEADER -->
@@ -74,9 +60,9 @@ include('parts/part.nav.php')
         <!-- RIGHT -->
         <div class="col-md-5">
           <!-- HEADER TITLE(LOGIN FORM) -->
-          <h2>
+          <h1>
             G1 Boost | Login
-          </h2>
+          </h1>
           <!-- HEADER PARAGRAPH -->
           <p></p>
           <!-- HEADER PARAGRAPH BUTTONS -->
@@ -90,26 +76,31 @@ include('parts/part.nav.php')
           <form action="#" method="POST">
             <div class="col-md-9">
               <label for="formGroupExampleInput" class="form-label">Username</label>
-              <input type="text" name="username" class="form-control" id="formGroupExampleInput" placeholder="Enter Username" >
+              <input type="text" name="username" class="form-control" id="formGroupExampleInput" placeholder="Enter Username" required>
             </div>
             <div class="col-md-9">
               <label for="formGroupExampleInput2" class="form-label">Password</label>
-              <input type="password" name="password" class="form-control" id="formGroupExampleInput2" placeholder="Enter your Password." >
+              <input type="password" name="password" class="form-control" id="formGroupExampleInput2" placeholder="Enter your Password." required>
             </div>
             <div class="col-12 pt-3">
-              <input type="submit" class="btn btn-primary">
+              <a class="btn btn-outline-dark btn-rounded" href="register.php">
+                Create an Account
+              </a>
+            </div>
+            <div class="col-12 pt-3">
+              <input type="submit" value="Login "class="btn btn-primary">
             </div>
           </form>
         </div>
         <!-- LEFT -->
         <div class="col-md-5">
           <!-- https://pixabay.com/illustrations/id-driving-license-personal-identity-4157974/ -->
-          <img src="img/login.png" class="img-fluid" alt="identification card header image">
+          <img src="img/login.png" class="img-fluid" alt="An image depicting an Idencitfication Card.">
         </div>
       </div>
     </div>
   </header>
 
 <!-- FOOTER -->
-<?php include('parts/part.footer.php') ?>
+<?php include('parts/part_footer.php') ?>
 <!-- FOOTER -->

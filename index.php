@@ -1,20 +1,35 @@
 <?php
-  require ('parts/addon.function.php');
+  require ('parts/addon_function.php');
   // check_login();
 ?>
 <!-- HEAD -->
-<?php require('parts/part.head.php') ?>
-<title>Driving Test | Home</title>
+<?php require('parts/part_head.php') ?>
+<title>G1 Boost | Home</title>
+<meta name="keywords" content="
+  G1
+">
+<meta name="description" content="
+  There is not much to say about us, We are a group of students from Conestoga College kitchener and we have created this website as our capstone project as a means to study for G1 Driving Test.
+">
+<meta name="author" content="
+  G1 Boost
+">
+<meta name="og:title" content="
+  There is not much to say about us, We are a group of students from Conestoga College kitchener and we have created this website as our capstone project as a means to study for G1 Driving Test.
+">
+<meta name="robots" content="
+  index, follow
+">
 
 <!-- NAV -->
-<?php include('parts/part.nav.php') ?>
+<?php include('parts/part_nav.php') ?>
 
 <!-- Carousal -->
-<?php include('parts/part.carousal.php') ?>
+<?php include('parts/part_carousal.php') ?>
 
 <!-- WAVE PATTERN Bottom -->
 <?php
-include('parts/part.wave_bottom.php')
+include('parts/part_wave_bottom.php')
 ?>
 
   <!-- HEADER -->
@@ -23,53 +38,27 @@ include('parts/part.wave_bottom.php')
       <div class="row align-items-center justify-content-center">
         <div class="col-md-5">
           <!-- HEADER TITLE -->
-          <h2>
+          <h1>
             G1 Boost | Driving Test Practice
-          </h2>
+          </h1>
           <!-- HEADER PARAGRAPH -->
           <p>Try out our new approach to learning with interactive and fast paced quizes that will help you clear your G1 Test.</p>
           <!-- HEADER PARAGRAPH BUTTONS -->
           <a href="quiztype.php">
-            <button type="button" class="btn btn-outline-primary">
+            <button type="button" class="btn btn-outline-light">
               Check our different Test Types.
-            </button>
-          </a>
-          <a href="#" class="disabled">
-            <button type="button" class="btn btn btn-outline-success disabled">
-              Read about our Learning Strategies.
             </button>
           </a>
         </div>
           <!-- HEADER IMAGE -->
         <div class="col-md-5">
           <!-- https://pixabay.com/illustrations/id-driving-license-personal-identity-4157974/ -->
-          <img src="img/id1.png" class="img-fluid" alt="identification card header image">
+          <img src="img/login.png" class="img-fluid" alt="An image related to MCQ Questions">
         </div>
       </div>
     </div>
   </header>
 
-  <!-- WAVE PATTERN TOP -->
-  <?php include('parts/part.wave_top.php') ?>
-
-  <!-- SOCIAL MEDIA LINKS -->
-  <section class="socials">
-    <div class="container text-center">
-      <div class="row g-3">
-          <div class="col-md-2"><img class="img-fluid page-icon" src="img/socials/twitter.svg" alt="logo for social media"></div>
-          <div class="col-md-2"><img class="img-fluid page-icon" src="img/socials/facebook.svg" alt="logo for social media"></div>
-          <div class="col-md-2"><img class="img-fluid page-icon" src="img/socials/instagram.svg" alt="logo for instagram social media"></div>
-          <div class="col-md-2"><img class="img-fluid page-icon" src="img/socials/googleplus.svg" alt="logo for googleplus social media"></div>
-          <div class="col-md-2"><img class="img-fluid page-icon" src="img/socials/tumblr.svg" alt="logo for tumblr social media"></div>
-          <div class="col-md-2"><img class="img-fluid page-icon" src="img/socials/youtube.svg" alt="logo for youtube social media"></div>
-      </div>
-    </div>
-  </section>
-
-
-<!-- WAVE PATTERN Bottom -->
-<?php include('parts/part.wave_bottom.php') ?>
-
 <!-- FOOTER -->
-<?php include('parts/part.footer.php') ?>
+<?php include('parts/part_footer.php') ?>
 <!-- FOOTER -->

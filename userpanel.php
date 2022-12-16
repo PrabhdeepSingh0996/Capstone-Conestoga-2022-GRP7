@@ -1,13 +1,14 @@
 <?php
-  require ('parts/addon.function.php');
+  require ('parts/addon_function.php');
   check_login();
 
   if($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['username']))
   {
+    $user_id = $_SESSION['info']['user_id'];
     // Adding data to cutom variables from array
     // uploading image
     $image_added = false;
-    if(!empty($_FILES['image']['name']) && $_FILES['image']['error'] == 0){
+    if(!empty($_FILES['image']['tmp_name']) && $_FILES['image']['error'] == 0){
       // file uploaded
       $folder = "uploads/";
 
@@ -17,7 +18,7 @@
         mkdir($folder,0777,true);
       }
 
-      $image = $folder . $_FILES['image']['name'];
+      $image = $folder . 'userpfp_' . $user_id . '.' .pathinfo($_FILES['image']['name'])['extension'];
       move_uploaded_file($_FILES['image']['tmp_name'], $image);
       $image_added = true;
     }
@@ -31,11 +32,9 @@
     echo(strlen($username));
     if($password == ""){
       $error .= "Password cannot be empty <br>";
-      die;
     }
     if($username == ""){
-      $error .= "Empty Username";
-      die;
+      $error .= "Empty Username <br>";
     }
     if(!preg_match("/^[a-zA-Z]*$/",$first_name)){
       $error .= 'First name should contain only alphabets<br>';
@@ -47,7 +46,7 @@
       $error .= 'Email is not valid';  
     }
     if(!empty($username) && !empty($password) && preg_match("/^[a-zA-Z]*$/",$first_name) && preg_match("/^[a-zA-Z]*$/",$last_name) && filter_var($email,FILTER_VALIDATE_EMAIL) ){
-      $user_id = $_SESSION['info']['user_id'];
+
       if ($image_added == true){
         $query = "update user set first_name = '$first_name', last_name = '$last_name', username = '$username', email = '$email', password = '$password', image = '$image' where user_id = $user_id limit 1";
       }else{
@@ -70,12 +69,12 @@
 ?>
 
 <!-- HEAD -->
-<?php require('parts/part.head.php') ?>
+<?php require('parts/part_head.php') ?>
 <title>G1 Boost | User Panel</title>
 
 <!-- NAV -->
 <?php
-include('parts/part.nav.php')
+include('parts/part_nav.php')
 ?>
   <!-- HEADER -->
   <header class="page-header page-padding_top_5 gradient">
@@ -91,9 +90,9 @@ include('parts/part.nav.php')
           ?>
           <!-- HEADER TITLE(LOGIN FORM) -->
           <?php if(!empty($_GET['action']) && $_GET['action'] == 'edit'):?>
-            <h2>
-              G1 Boost | Edit Mode
-            </h2>
+            <h1>
+              Edit Mode
+            </h1>
             <!-- HEADER PARAGRAPH -->
             <p>Welcome 
               <?php 
@@ -102,9 +101,9 @@ include('parts/part.nav.php')
               <br>In Edit mode you can change your Profile details.
             </p>
           <?php else:?>
-            <h2>
-              G1 Boost | User Panel
-            </h2>
+            <h1>
+              User Panel
+            </h1>
             <!-- HEADER PARAGRAPH -->
             <p>Welcome 
               <?php 
@@ -119,30 +118,29 @@ include('parts/part.nav.php')
             <form method="post" enctype="multipart/form-data" >
               <div class="row align-items-center justify-content-center">
                 <div class="col-md-6 pt-2 pb-2">
-                  <label for="First Name" class="form-label">First Name</label>
-                  <input value="<?php echo $_SESSION['info']['first_name']?>" type="First Name" name="first_name" class="form-control" id="inputFirstName" placeholder="First Name ">
+                  <label for="inputFirstName" class="form-label">First Name</label>
+                  <input value="<?php echo $_SESSION['info']['first_name']?>" type="First Name" name="first_name" class="form-control" id="inputFirstName" placeholder="First Name " required>
                 </div>
                 <div class="col-md-6 pt-2 pb-2">
-                  <label for="Last Name" class="form-label">Last Name</label>
-                  <input value="<?php echo $_SESSION['info']['last_name']?>" type="Last Name" name="last_name" class="form-control" id="inputLastName" placeholder="Last Name">
+                  <label for="inputLastName" class="form-label">Last Name</label>
+                  <input value="<?php echo $_SESSION['info']['last_name']?>" type="Last Name" name="last_name" class="form-control" id="inputLastName" placeholder="Last Name" required>
                 </div>
               </div>
               <div class="cold-md-12 pt-2 pb-2">
                   <label for="inputEmail" class="form-label">Enter Your Email Address</label>
-                  <input value="<?php echo $_SESSION['info']['email']?>" type="text" name="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                  <input value="<?php echo $_SESSION['info']['email']?>" type="email" name="email" class="form-control" id="inputEmail" placeholder="Email Address" required>
               </div>
               <div class="row align-items-center justify-content-center">
                 <div class="col-md-6 pt-2 pb-2">
-                  <label for="username" class="form-label">Username</label>
-                  <input value="<?php echo $_SESSION['info']['username']?>" type="text" name="username" class="form-control" id="inputUsername" placeholder="Username">
+                  <label for="inputUsername" class="form-label">Username</label>
+                  <input value="<?php echo $_SESSION['info']['username']?>" type="text" name="username" class="form-control" id="inputUsername" placeholder="Username" required>
                 </div>
                 <div class="col-md-6 pt-2 pb-2">
                   <label for="inputPassword" class="form-label">Password</label>
-                  <input value="<?php echo $_SESSION['info']['password']?>" type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+                  <input value="<?php echo $_SESSION['info']['password']?>" type="password" name="password" class="form-control" id="inputPassword" placeholder="Password" required>
                 </div>
                 <div class="col-md-12 pt-2 pb-2">
                   <label for="inputImage" class="form-label">Profile Picture:</label>
-                  
                   <input type="file" name="image" class="form-control" id="inputImage">
                 </div>
               </div>
@@ -165,7 +163,7 @@ include('parts/part.nav.php')
             <?php else:?>
               <div class="row">
                 <div class="col-md-3">
-                  <h5>First Name:</h5>
+                  <p class="font-weight-bold">First Name:</p>
                 </div>
                 <div class="col-md-2">
                   <p>
@@ -177,7 +175,7 @@ include('parts/part.nav.php')
               </div>
               <div class="row">
                 <div class="col-md-3">
-                  <h5>Last Name:</h5>
+                  <p class="font-weight-bold">Last Name:</p>
                 </div>
                 <div class="col-md-2">
                   <p>
@@ -189,7 +187,7 @@ include('parts/part.nav.php')
               </div>
               <div class="row">
                 <div class="col-md-3">
-                  <h5>User Name:</h5>
+                  <p class="font-weight-bold">User Name:</p>
                 </div>
                 <div class="col-md-2">
                   <p>
@@ -201,7 +199,7 @@ include('parts/part.nav.php')
               </div>
               <div class="row">
                 <div class="col-md-3">
-                  <h5>Email:</h5>
+                  <p class="font-weight-bold">Email:</p>
                 </div>
                 <div class="col-md-2">
                   <p>
@@ -218,21 +216,15 @@ include('parts/part.nav.php')
                 </button>
               </a>
             </div>
-              <form method="post">
-                <div class="col-12 pt-3">
-                  <input type="submit" class="btn btn-primary">
-                </div>
-              </form>
           <?php endif;?>
         </div>
         <!-- LEFT -->
         <div class="col-md-3">
-          <img src="<?php echo $_SESSION['info']['image']?>" class="img-fluid" alt="identification card header image">
-          <!-- <img src="img/profile.png" class="img-fluid" alt="identification card header image"> -->
+          <img src="<?php echo $_SESSION['info']['image'] ? $_SESSION['info']['image'] : 'img/profile.png'?>" class="img-fluid" alt="An image of the user currently logged in">
         </div>
       </div>
     </div>
   </header>
 <!-- FOOTER -->
-<?php include('parts/part.footer.php') ?>
+<?php include('parts/part_footer.php') ?>
 <!-- FOOTER -->
