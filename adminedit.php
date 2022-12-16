@@ -19,7 +19,7 @@ include('parts/part_nav.php')
         <div class="col-md-5">
           <!-- HEADER TITLE(REGISTRATION FORM) -->
           <h1>
-            Edit a user.
+            Edit a user
           </h1>
           <!-- HEADER PARAGRAPH -->
           <p>Here you can edit a existing account.</p>
