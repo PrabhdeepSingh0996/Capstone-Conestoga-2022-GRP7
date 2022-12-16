@@ -1,43 +1,14 @@
 <?php
-  require ('parts/addon.function.php');
-
-  //////////    SAME AS ADMINCREATECODE.PHP FILE 
-  
-  // if(isset($_POST['save_user']))
-  // {
-  //   $first_name = mysqli_real_escape_string($con, $_POST['first_name']);
-  //   $last_name = mysqli_real_escape_string($con, $_POST['last_name']);
-  //   $username = mysqli_real_escape_string($con, $_POST['username']);
-  //   $email = mysqli_real_escape_string($con, $_POST['email']);
-  //   $password = mysqli_real_escape_string($con, $_POST['password']);
-
-  //   $query = "INSERT INTO `user` (first_name,last_name,email,username,password) 
-  //     VALUES ('$first_name','$last_name','$email','$username','$password')";
-
-  //   // capturing mysqli query results into variable result
-  //   $query_run = mysqli_query($con,$query);
-  //   if($query_run)
-  //   {
-  //     $_SESSION['message'] = "User Created Successfuly.";
-  //     header("Location: admincreate.php");
-  //     exit(0);
-  //   }
-  //   else
-  //   {
-  //     $_SESSION['message'] = "Unable to Create User.";
-  //     header("Location: admincreate.php");
-  //     exit(0);
-  //   }
-  // }
+  require ('parts/addon_function.php');
 ?>
 
 <!-- HEAD -->
-<?php require('parts/part.head.php') ?>
+<?php require('parts/part_head.php') ?>
 <title>G1 Boost | Admin Add</title>
 
 <!-- NAV -->
 <?php 
-include('parts/part.nav.php') 
+include('parts/part_nav.php') 
 ?> 
 
   <!-- HEADER -->
@@ -54,7 +25,7 @@ include('parts/part.nav.php')
           <p>Here you can add a new account.</p>
 
           <?php 
-            include('parts/addon.message.php') 
+            include('parts/addon_message.php') 
           ?> 
 
 
@@ -100,5 +71,5 @@ include('parts/part.nav.php')
   </header>
 
 <!-- FOOTER -->
-<?php include('parts/part.footer.php') ?>
+<?php include('parts/part_footer.php') ?>
 <!-- FOOTER -->

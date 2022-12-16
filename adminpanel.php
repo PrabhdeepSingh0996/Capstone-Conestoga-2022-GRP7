@@ -92,10 +92,6 @@ include('parts/part_nav.php')
             </tbody>
           </table>
         </div>
-        <!-- LEFT -->
-        <div class="col-md-3">
-          <!-- <img src="img/profile.png" class="img-fluid" alt="identification card header image"> -->
-        </div>
       </div>
     </div>
   </header>

@@ -11,8 +11,8 @@ body {
     margin-top: 4rem;
 }
 .gradient{
-    background: rgb(79,209,217);
-    background: linear-gradient(90deg, rgba(79,209,217,1) 0%, rgba(45,201,210,1) 20%, rgba(13,82,85,1) 75%, rgba(11,52,52,1) 100%);
+    background: #0d5255;
+    background: linear-gradient(90deg, #4fd1d9 0%, #2dc9d2 20%, #0d5255 75%, #0b3434 100%);
 }
 
 /* index. HEADER */
@@ -26,6 +26,7 @@ body {
     padding-top: 7rem;
     padding-bottom: 4rem;
     color: #fff;
+    
 }
 /* Caraousal */
 .page-carousal-head {
@@ -66,8 +67,26 @@ body {
 }
 
 .img-thumb-max{
-    max-width: 150px;
+    max-width: 100px;
 }
 .img-thumb-max2{
     max-width: 150px;
+}
+
+tbody  > tr > td{
+    color:white;
+}
+tr{
+    color:white;
+}
+td{
+    color:white;
+}
+tbody{
+    color:white;
+}
+
+.quizimage{
+    max-width: 250px;
+    max-height: 250px;
 }

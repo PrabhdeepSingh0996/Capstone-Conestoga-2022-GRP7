@@ -1,14 +1,14 @@
 <?php
-  require ('parts/addon.function.php');
+  require ('parts/addon_function.php');
 ?>
 
 <!-- HEAD -->
-<?php require('parts/part.head.php') ?>
+<?php require('parts/part_head.php') ?>
 <title>G1 Boost | Admin Edit</title>
 
 <!-- NAV -->
 <?php 
-include('parts/part.nav.php') 
+include('parts/part_nav.php') 
 ?> 
 
   <!-- HEADER -->
@@ -25,7 +25,7 @@ include('parts/part.nav.php')
           <p>Here you can edit a existing account.</p>
 
           <?php 
-            include('parts/addon.message.php') 
+            include('parts/addon_message.php') 
           ?>
 
           <?php
@@ -42,12 +42,12 @@ include('parts/part.nav.php')
             <div class="row align-items-center justify-content-center">
               <input type="hidden" value="<?=$user['user_id'];?>" name="user_id" class="form-control" id="inputUserID">
               <div class="col-md-6">
-                <label for="First Name" class="form-label">First Name</label>
-                <input type="First Name" value="<?=$user['first_name'];?>" name="first_name" class="form-control" id="inputFirstName" placeholder="First Name " required>
+                <label for="inputFirstName" class="form-label">First Name</label>
+                <input pattern="[a-zA-Z]+" type="text" value="<?=$user['first_name'];?>" name="first_name" class="form-control" id="inputFirstName" placeholder="First Name " required>
               </div>
               <div class="col-md-6">
-                <label for="Last Name" class="form-label">Last Name</label>
-                <input type="Last Name" value="<?=$user['last_name'];?>"  name="last_name" class="form-control" id="inputLastName" placeholder="Last Name" required>
+                <label for="inputLastName" class="form-label">Last Name</label>
+                <input pattern="[a-zA-Z]+" type="text" value="<?=$user['last_name'];?>"  name="last_name" class="form-control" id="inputLastName" placeholder="Last Name" required>
               </div>
             </div>
             <div class="cold-md-12">
@@ -56,16 +56,13 @@ include('parts/part.nav.php')
             </div>
             <div class="row align-items-center justify-content-center">
               <div class="col-md-6">
-                <label for="username" class="form-label">Username</label>
+                <label for="inputUsername" class="form-label">Username</label>
                 <input type="text" value="<?=$user['username'];?>"  name="username" class="form-control" id="inputUsername" placeholder="Username" required>
               </div>
               <div class="col-md-6">
                 <label for="inputPassword" class="form-label">Password</label>
                 <input type="password" value="<?=$user['password'];?>"  name="password" class="form-control" id="inputPassword" placeholder="Password" required>
               </div>
-              <div class="col-md-12 pt-2 pb-2 d-none">
-                  <input type="file" name="image" class="form-control" id="inputImage" value="uploads/profile.png">
-                </div>
             </div>
             <div class="col-12 pt-3">
               <button type="submit" name="update_user" class="btn btn-primary">Update User</button>
@@ -85,14 +82,14 @@ include('parts/part.nav.php')
           <!-- https://pixabay.com/vectors/icon-icons-question-mark-button-354008/ -->
           <img src=
             "<?php 
-              echo $user['image']
+              echo $user['image'] ? $user['image'] : 'img/profile.png'
             ?>"
-              class="img-fluid" alt="identification card header image">
+              class="img-fluid" alt="An image of the registered user.">
         </div>
       </div>
     </div>
   </header>
 
 <!-- FOOTER -->
-<?php include('parts/part.footer.php') ?>
+<?php include('parts/part_footer.php') ?>
 <!-- FOOTER -->

@@ -1,16 +1,16 @@
 <?php
-  require ('parts/addon.function.php');
+  require ('parts/addon_function.php');
   // check_login();
 
 ?>
 
 <!-- HEAD -->
-<?php require('parts/part.head.php') ?>
+<?php require('parts/part_head.php') ?>
 <title>G1 Boost | Admin Panel</title>
 
 <!-- NAV -->
 <?php
-include('parts/part.nav.php')
+include('parts/part_nav.php')
 ?>
   <!-- HEADER -->
   <header class="page-header page-padding_top_5 gradient">
@@ -31,7 +31,7 @@ include('parts/part.nav.php')
           </p>
           <p>
             <?php
-              include('parts/addon.message.php')
+              include('parts/addon_message.php')
             ?>
           </p>
           <table class="table-responsive table align-middle mb-0">
@@ -115,5 +115,5 @@ include('parts/part.nav.php')
     </div>
   </header>
 <!-- FOOTER -->
-<?php include('parts/part.footer.php') ?>
+<?php include('parts/part_footer.php') ?>
 <!-- FOOTER -->

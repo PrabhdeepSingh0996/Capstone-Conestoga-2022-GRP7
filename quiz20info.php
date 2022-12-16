@@ -1,6 +1,6 @@
 <?php
-  require ('parts/addon.function.php');
-  // check_login();
+  require ('parts/addon_function.php');
+  check_login();
 ?>
 
 <?php
@@ -14,17 +14,17 @@
 ?>
 
 <!-- HEAD -->
-<?php require('parts/part.head.php') ?>
+<?php require('parts/part_head.php') ?>
 <title>G1 Boost | Quiz Info</title>
 <!-- HEAD -->
 
 <!-- NAV -->
-<?php include('parts/part.nav.php') ?>
+<?php include('parts/part_nav.php') ?>
 <!-- NAV -->
 
 <!-- WAVE PATTERN Bottom -->
 <?php
-// include('parts/part.wave_bottom.php')
+// include('parts/part_wave_bottom.php')
 ?>
 
   <!-- HEADER -->
@@ -40,7 +40,7 @@
             <!-- START BUTTON -->
             <div class="col-md-12 pb-2">
               <h1>
-              Basic 10 Rules Test
+                20 Rules & Signs Test
               </h1>
             </div>
           </div>
@@ -61,14 +61,14 @@
 
             <div class="row">
               <div class="col-md-7">
-                <h5>
+                <p class="font-weight-bold">
                   Number of Questions
-                </h5>
+                </p>
               </div>
               <div class="col-md-5">
                 <p>
                   <?php
-                    echo $total;
+                    echo $total - 60;
                   ?> Questions.
                 </p>
               </div>
@@ -76,14 +76,14 @@
 
             <div class="row">
               <div class="col-md-7">
-                <h5>
+                <p class="font-weight-bold">
                   Estimate Time Required
-                </h5>
+                </p>
               </div>
               <div class="col-md-5">
                 <p>
                   <?php
-                    echo $total * .25;
+                    echo ($total - 60) * 0.25;
                   ?> Minutes.
                 </p>
               </div>
@@ -93,24 +93,24 @@
           <div class="row align-items-center">
             <!-- START BUTTON -->
             <div class="col-5 p-3 align-items-center justify-content-center">
-              <a href="quiz20.php?n=1">
+              <a href="quiz20.php?start=61">
                 <button type="button" class="btn btn-primary col-12">
-                  Start the Test
+                  20 Questions Test
                 </button>
               </a>
             </div>
           </div>
-
         </div>
+        
         <!-- LEFT -->
         <div class="col-md-5">
           <!-- https://pixabay.com/illustrations/feedback-survey-questionnaire-3239454/ -->
-          <img src="img/quiz.png" class="img-fluid" alt="identification card header image">
+          <img src="img/quiz.png" class="img-fluid" alt="An image depicting a MCQ test.">
         </div>
       </div>
     </div>
   </header>
 
 <!-- FOOTER -->
-<?php include('parts/part.footer.php') ?>
+<?php include('parts/part_footer.php') ?>
 <!-- FOOTER -->

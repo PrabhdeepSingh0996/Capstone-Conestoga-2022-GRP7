@@ -1,19 +1,19 @@
 <?php
-  require ('parts/addon.function.php');
+  require ('parts/addon_function.php');
   // check_login();
 ?>
 <!-- HEAD -->
-<?php require('parts/part.head.php') ?>
+<?php require('parts/part_head.php') ?>
 <title>Driving Test | Form</title>
 <!-- HEAD -->
 
 <!-- NAV -->
-<?php include('parts/part.nav.php') ?>
+<?php include('parts/part_nav.php') ?>
 <!-- NAV -->
 
 <!-- WAVE PATTERN Bottom -->
 <?php
-// include('parts/part.wave_bottom.php')
+// include('parts/part_wave_bottom.php')
 ?>
 
   <!-- HEADER -->
@@ -32,5 +32,5 @@
   </header>
 
 <!-- FOOTER -->
-<?php include('parts/part.footer.php') ?>
+<?php include('parts/part_footer.php') ?>
 <!-- FOOTER -->

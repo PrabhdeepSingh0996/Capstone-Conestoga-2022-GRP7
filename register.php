@@ -1,9 +1,28 @@
 <?php
-  require ('parts/addon.function.php');
+  require ('parts/addon_function.php');
   check_register();
 
   if($_SERVER['REQUEST_METHOD'] == "POST")
   {
+    // Adding data to cutom variables from array
+    // uploading image
+    $image_added = false;
+    if(!empty($_FILES['image']['name']) && $_FILES['image']['error'] == 0){
+      // file uploaded
+      $folder = "uploads/";
+
+      if(!file_exists($folder))
+      {
+        // permission to write
+        mkdir($folder,0777,true);
+      }
+
+      $image = $folder . $_FILES['image']['name'];
+
+      move_uploaded_file($_FILES['image']['tmp_name'], $image);
+      
+      $image_added = true;
+    }
     // adding data to cutom variables from array
     // addslashes funtion to convert input into strings
     $first_name = addslashes($_POST['first_name']);
@@ -11,6 +30,7 @@
     $username = addslashes($_POST['username']);
     $email = addslashes($_POST['email']);
     $password = addslashes($_POST['password']);
+    
     if(!preg_match("/^[a-zA-Z]*$/",$first_name)){
      $error .= 'First name should contain only alphabets<br>';
     }
@@ -21,30 +41,22 @@
       $error .= 'Email is not valid';  
     }
     if(preg_match("/^[a-zA-Z]*$/",$first_name) && preg_match("/^[a-zA-Z]*$/",$last_name) && filter_var($email,FILTER_VALIDATE_EMAIL)) {
-      $result  = mysqli_query($con,"INSERT INTO User (first_name,last_name,email,username,password)
+      $result  = mysqli_query($con,"INSERT INTO user (first_name,last_name,email,username,password)
         values ('$first_name','$last_name','$email','$username','$password')") 
           or 
             die(mysqli_error($con));
             header("Location: login.php");
-
-      // $query = "insert into user (first_name,last_name,email,username,password) values ('$first_name','$last_name','$email','$username','$password')";
-
-      // // capturing mysqli query results into variable result
-      // $result = mysqli_query($con,$query);
-      // header("Location: login.php");
-      // die;
-
     }
   }
 ?>
 
 <!-- HEAD -->
-<?php require('parts/part.head.php') ?>
+<?php require('parts/part_head.php') ?>
 <title>G1 Boost | Register</title>
 
 <!-- NAV -->
 <?php 
-include('parts/part.nav.php') 
+include('parts/part_nav.php') 
 ?> 
 
   <!-- HEADER -->
@@ -67,11 +79,11 @@ include('parts/part.nav.php')
           <form method="post">
             <div class="row align-items-center justify-content-center">
               <div class="col-md-6">
-                <label for="First Name" class="form-label">First Name</label>
+                <label for="inputFirstName" class="form-label">First Name</label>
                 <input type="First Name" name="first_name" class="form-control" id="inputFirstName" placeholder="First Name " required>
               </div>
               <div class="col-md-6">
-                <label for="Last Name" class="form-label">Last Name</label>
+                <label for="inputLastName" class="form-label">Last Name</label>
                 <input type="Last Name" name="last_name" class="form-control" id="inputLastName" placeholder="Last Name" required>
               </div>
             </div>
@@ -81,16 +93,18 @@ include('parts/part.nav.php')
             </div>
             <div class="row align-items-center justify-content-center">
               <div class="col-md-6">
-                <label for="username" class="form-label">Username</label>
+                <label for="inputUsername" class="form-label">Username</label>
                 <input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username" required>
               </div>
               <div class="col-md-6">
                 <label for="inputPassword" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password" required>
               </div>
-              <div class="col-md-12 pt-2 pb-2 d-none">
-                  <input type="file" name="image" class="form-control" id="inputImage" value="uploads/profile.png">
-                </div>
+            </div>
+            <div class="col-12 pt-3">
+              <a class="btn btn-outline-dark btn-rounded" href="login.php">
+                Go to login page
+              </a>
             </div>
             <div class="col-12 pt-3">
               <button type="submit" class="btn btn-primary">Register</button>
@@ -99,12 +113,12 @@ include('parts/part.nav.php')
         </div>
         <div class="col-md-5">
           <!-- https://pixabay.com/vectors/icon-icons-question-mark-button-354008/ -->
-          <img src="img/register.png" class="img-fluid" alt="identification card header image">
+          <img src="img/register.png" class="img-fluid" alt="An image depicting a question mark sign.">
         </div>
       </div>
     </div>
   </header>
 
 <!-- FOOTER -->
-<?php include('parts/part.footer.php') ?>
+<?php include('parts/part_footer.php') ?>
 <!-- FOOTER -->

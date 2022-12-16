@@ -1,5 +1,5 @@
 <?php
-  require ('parts/addon.function.php');
+  require ('parts/addon_function.php');
   
   if(isset($_POST['delete_user'])){
     $user_id = mysqli_real_escape_string($con, $_POST['delete_user']);
