@@ -1,5 +1,5 @@
 <?php
-    require ('parts/addon.function.php');
+    require ('parts/addon_function.php');
 
 // session_destroy();
 UNSET($_SESSION['info']);

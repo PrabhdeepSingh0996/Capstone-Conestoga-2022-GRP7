@@ -1,9 +1,9 @@
 <?php
-  require ('parts/addon.function.php');
+  require ('parts/addon_function.php');
   // check_login();
 ?>
 <!-- HEAD -->
-<?php require('parts/part.head.php') ?>
+<?php require('parts/part_head.php') ?>
 <title>G1 Boost | Home</title>
 <meta name="keywords" content="
   G1
@@ -22,14 +22,14 @@
 ">
 
 <!-- NAV -->
-<?php include('parts/part.nav.php') ?>
+<?php include('parts/part_nav.php') ?>
 
 <!-- Carousal -->
-<?php include('parts/part.carousal.php') ?>
+<?php include('parts/part_carousal.php') ?>
 
 <!-- WAVE PATTERN Bottom -->
 <?php
-// include('parts/part.wave_bottom.php')
+include('parts/part_wave_bottom.php')
 ?>
 
   <!-- HEADER -->
@@ -49,21 +49,16 @@
               Check our different Test Types.
             </button>
           </a>
-          <!-- <a href="#" class="disabled">
-            <button type="button" class="btn btn btn-outline-success disabled">
-              Read about our Learning Strategies.
-            </button>
-          </a> -->
         </div>
           <!-- HEADER IMAGE -->
         <div class="col-md-5">
           <!-- https://pixabay.com/illustrations/id-driving-license-personal-identity-4157974/ -->
-          <img src="img/login.png" class="img-fluid" alt="identification card header image">
+          <img src="img/login.png" class="img-fluid" alt="An image related to MCQ Questions">
         </div>
       </div>
     </div>
   </header>
 
 <!-- FOOTER -->
-<?php include('parts/part.footer.php') ?>
+<?php include('parts/part_footer.php') ?>
 <!-- FOOTER -->

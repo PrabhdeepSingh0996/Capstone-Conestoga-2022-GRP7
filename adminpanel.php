@@ -1,23 +1,23 @@
 <?php
-  require ('parts/addon.function.php');
+  require ('parts/addon_function.php');
   // check_login();
 
 ?>
 
 <!-- HEAD -->
-<?php require('parts/part.head.php') ?>
+<?php require('parts/part_head.php') ?>
 <title>G1 Boost | Admin Panel</title>
 
 <!-- NAV -->
 <?php
-include('parts/part.nav.php')
+include('parts/part_nav.php')
 ?>
   <!-- HEADER -->
   <header class="page-header page-padding_top_5 gradient">
-    <div class="container pt-3" >
+    <div class="container pt-10" >
       <div class="row align-items-center justify-content-center">
         <!-- RIGHT -->
-        <div class="col-md-5">
+        <div class="col-md-10">
           <!-- HEADER TITLE(LOGIN FORM) -->
           <h1>
             Admin Panel
@@ -29,21 +29,15 @@ include('parts/part.nav.php')
             ?>!
             <br>Here you can view all the users and make changes to them.
           </p>
-          
-          <?php 
-            include('parts/addon.message.php') 
-          ?>
 
           <div class="col-12 pt-3">
             <a href="admincreate.php">
               <button type="button" class="btn btn-outline-primary btn-sm btn-rounded"> Add a new user </button>
             </a>
           </div>
-          <p>
-            <?php
-              include('parts/addon.message.php')
-            ?>
-          </p>
+          <?php
+            include('parts/addon_message.php')
+          ?>
           <table class="table-responsive table align-middle mb-0">
             <thead>
               <tr>
@@ -64,11 +58,13 @@ include('parts/part.nav.php')
                       ?>
                       <tr>
                         <td>
-                          <div class="d-flex align-items-center"> <img src=
-                            "<?php 
-                              echo $user['image']
-                            ?>"
-                              class="img-fluid .rounded shadow-2-strong img-thumb-max" alt="identification card header image">
+                          <div class="d-flex align-items-center">
+                            <img src=
+                              "<?php 
+                                echo $user['image'] ? $user['image'] : 'img/profile.png'
+                                ?>" 
+                                class="img-fluid .rounded shadow-2-strong img-thumb-max" alt="A User's defulat Avatar
+                            ">
                           </div>
                         </td>
                         <td> <p class="fw-normal mb-1"> <?= $user['first_name']; ?> </p> </td>
@@ -104,5 +100,5 @@ include('parts/part.nav.php')
     </div>
   </header>
 <!-- FOOTER -->
-<?php include('parts/part.footer.php') ?>
+<?php include('parts/part_footer.php') ?>
 <!-- FOOTER -->

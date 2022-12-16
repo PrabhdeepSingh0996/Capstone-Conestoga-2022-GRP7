@@ -1,5 +1,5 @@
 <?php
-  require ('parts/addon.function.php');
+  require ('parts/addon_function.php');
   check_register();
   
   if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -45,12 +45,12 @@
 ?>
 
 <!-- HEAD -->
-<?php require('parts/part.head.php') ?>
+<?php require('parts/part_head.php') ?>
 <title>G1 Boost | Login</title>
 
 <!-- NAV -->
 <?php 
-include('parts/part.nav.php')
+include('parts/part_nav.php')
 ?>
 
   <!-- HEADER -->
@@ -83,19 +83,24 @@ include('parts/part.nav.php')
               <input type="password" name="password" class="form-control" id="formGroupExampleInput2" placeholder="Enter your Password." required>
             </div>
             <div class="col-12 pt-3">
-              <input type="submit" class="btn btn-primary">
+              <a class="btn btn-outline-dark btn-rounded" href="register.php">
+                Create an Account
+              </a>
+            </div>
+            <div class="col-12 pt-3">
+              <input type="submit" value="Login "class="btn btn-primary">
             </div>
           </form>
         </div>
         <!-- LEFT -->
         <div class="col-md-5">
           <!-- https://pixabay.com/illustrations/id-driving-license-personal-identity-4157974/ -->
-          <img src="img/login.png" class="img-fluid" alt="identification card header image">
+          <img src="img/login.png" class="img-fluid" alt="An image depicting an Idencitfication Card.">
         </div>
       </div>
     </div>
   </header>
 
 <!-- FOOTER -->
-<?php include('parts/part.footer.php') ?>
+<?php include('parts/part_footer.php') ?>
 <!-- FOOTER -->

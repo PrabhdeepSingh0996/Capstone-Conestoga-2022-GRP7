@@ -42,7 +42,7 @@
               </a>
             </div>
             <div class="col p-1">
-              <a class="link-light text-decoration-none" href="userpanel.php">
+              <a class="link-light text-decoration-none" href="form.php">
                 Donate
               </a>
             </div>
